@@ -1,4 +1,5 @@
 import Logo from "./components/Logo";
+import WorkOrLab from "./components/WorkOrLab";
 import reactLogo from "./assets/react.svg";
 import profilePicture from "./assets/profile-picture.png";
 import quarry from "./assets/decors-quarry.png";
@@ -35,6 +36,9 @@ const projectArr = [
 export default function Home() {
   return (
     <div className="mx-16">
+    <div className="sticky top-[700px] z-10">
+    <WorkOrLab />
+    </div>
       <div className="mt-12 flex justify-center ">
         <Logo />
       </div>
@@ -122,6 +126,8 @@ https://www.linkedin.com/in/reihaneb/"
           </div>
         ))}
         <hr className="my-32 border-gray-400" />
+        <span className="flex justify-center">Reihane B.</span>
+        
       </div>
     </div>
   );
