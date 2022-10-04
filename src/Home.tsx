@@ -2,38 +2,12 @@ import Logo from "./components/Logo";
 import WorkOrLab from "./components/WorkOrLab";
 import reactLogo from "./assets/react.svg";
 import profilePicture from "./assets/profile-picture.png";
-import quarry from "./assets/decors-quarry.png";
-import liomewebsite from "./assets/liome-website.png";
-import ultrabook from "./assets/ultrabook.png";
+import { NavLink } from "react-router-dom";
+import WorkData from "./database/WorkData";
 
-const projectArr = [
-  {
-    projectName: "Liome",
-    jobTitle: "Frontend Developer",
-    stack: {
-      stackSummary: ["React.Js", "Recoil", "TailwindCSS", "Firebase"],
-    },
-    firstImage: liomewebsite,
-  },
-  {
-    projectName: "Liome",
-    jobTitle: "3D Artist",
-    stack: {
-      stackSummary: ["Blender", "Photoshop", "Panther 3D"],
-    },
-    firstImage: quarry,
-  },
-  {
-    projectName: "Ultrabook",
-    jobTitle: "Développeur Front-End · Webdesigner",
-    stack: {
-      stackSummary: ["HTML", "PHP", "Figma"],
-    },
-    firstImage: ultrabook,
-  },
-];
+export default function Home(): JSX.Element {
+  const workArr = WorkData();
 
-export default function Home() {
   return (
     <>
       <div className="fixed bottom-8 w-full px-16">
@@ -98,8 +72,8 @@ https://www.linkedin.com/in/reihaneb/"
         </div>
 
         <div className="mt-32">
-          {projectArr.map((project, index: number) => (
-            <div key={index}>
+          {workArr.map((project: any, index: number) => (
+            <NavLink to={`/project/${project.id}`} key={index}>
               <div className="flex flex-nowrap justify-center items-center my-32">
                 <hr className=" border-gray-400 mr-4 w-1/2" />
                 <span className="text-gray-400">{index + 1}</span>
@@ -109,7 +83,7 @@ https://www.linkedin.com/in/reihaneb/"
                 <h2 className="">{project.projectName}</h2>
                 <p className="">{project.jobTitle}</p>
                 <div className="flex flex-wrap">
-                  {project.stack.stackSummary.map((stack, index) => (
+                  {project.stack.stackSummary.map((stack: any, index: any) => (
                     <p
                       key={index}
                       className="mt-4 bg-gray-200 px-6 py-2 rounded-xl w-fit mr-4"
@@ -124,7 +98,7 @@ https://www.linkedin.com/in/reihaneb/"
                   className="mt-6 w-full rounded-xl"
                 />
               </div>
-            </div>
+            </NavLink>
           ))}
           <hr className="my-36 border-gray-400" />
         </div>
