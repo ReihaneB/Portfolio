@@ -14,6 +14,9 @@ module.exports = {
           fontWeight: theme("fontWeight.medium"),
         },
         h3: { fontSize: theme("fontSize.xl") },
+        h4: {
+          fontWeight: theme("fontWeight.medium"),
+        },
       });
     }),
   ],
