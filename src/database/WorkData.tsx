@@ -1,6 +1,7 @@
 import quarry from "../assets/decors-quarry.png";
 import liomewebsite from "../assets/liome-website.png";
 import ultrabook from "../assets/ultrabook.png";
+import reactLogo from "../assets/react.svg";
 
 export default function WorkData(): any {
   return [
@@ -15,33 +16,54 @@ export default function WorkData(): any {
       theGoal: "Augmenter les ventes grâce à une meilleure UX",
       theGoalDescription:
         "Refaire le site de façon à coller au visuel et son identité forte, tout en laissant la possibilité au client de pouvoir modifier le contenu graphique du site chaque année sans revoir la structure.",
+      stackSummary: ["React.Js", "Recoil", "TailwindCSS", "Firebase"],
       stack: {
-        stackSummary: ["React.Js", "Recoil", "TailwindCSS", "Firebase"],
         frontend: {
-          frontendframework: { intitule: "React.Js", img: "" },
-          cssframework: { intitule: "TailwindCSS", img: "" },
-          frameworkstatemanagement: { intitule: "Recoil", img: "" },
+          frontendframework: {
+            1: { intitule: "React.Js", img: reactLogo },
+            2: { intitule: "Recoil", img: reactLogo },
+          },
+
+          cssframework: { 1: { intitule: "TailwindCSS", img: reactLogo } },
+          frameworkstatemanagement: {
+            1: { intitule: "Recoil", img: reactLogo },
+          },
         },
         backend: {
-          backendframework: { intitule: "Firebase", img: "" },
-          backendlanguage: { intitule: "Cloud functions (Node.Js)", img: "" },
-          databasemanagement: { intitule: "Firestore", img: "" },
-          usermanagement: { intitule: "Authentication", img: "" },
-          contents: { intitule: "Storage", img: "" },
+          backendframework: { 1: { intitule: "Firebase", img: reactLogo } },
+          backendlanguage: {
+            1: { intitule: "Cloud Functions (Node.Js)", img: reactLogo },
+          },
+          databasemanagement: { 1: { intitule: "Firestore", img: reactLogo } },
+          usermanagement: { 1: { intitule: "Authentication", img: reactLogo } },
+          contents: { 1: { intitule: "Storage", img: reactLogo } },
         },
         versioncontrol: {
-          intitule: "Github",
-          img: "",
+          control: {
+            1: { intitule: "Github", img: reactLogo },
+          },
         },
         uxuidesign: {
-          intitule: "Figma",
-          img: "",
+          graphism: {
+            1: { intitule: "Figma", img: reactLogo },
+          },
         },
       },
       images: {
-        homepage: ["", "", ""],
-        productPage: ["", "", ""],
-        accountPage: ["", "", ""],
+        homepage: {
+          1: { alt: "Homepage", img: liomewebsite },
+          2: { alt: "Homepage", img: liomewebsite },
+          3: { alt: "Homepage", img: liomewebsite },
+        },
+        productPage: {
+          1: { alt: "Homepage", img: liomewebsite },
+          2: { alt: "Homepage", img: liomewebsite },
+          3: { alt: "Homepage", img: liomewebsite },
+        },
+        accountPage: {
+          1: { alt: "Homepage", img: liomewebsite },
+          2: { alt: "Homepage", img: liomewebsite },
+        },
       },
       additionalinformations: {
         delivreables: [
@@ -51,25 +73,35 @@ export default function WorkData(): any {
           "UX/UI Design",
         ],
         graphicalcharter: {
-          typography: {
-            fontfamily: ["Montserrat", "Antic didone"],
-          },
+          typography: ["Montserrat", "Antic didone"],
+
           colors: {
             1: { name: "Fond", color: "#282828" },
             2: { name: "Card", color: "#666666" },
             3: { name: "Surlign", color: "#59B5C9" },
           },
         },
-        credits: {
+        projectInformations: {
           client: "Liome",
-          clientwebsite: "https://liome.fr/",
-          frontenddeveloper: ["Reihane B.", "Jawed M."],
-          backenddeveloper: ["Reihane B"],
-          uxuidesigner: ["Reihane B.", "Jawed M."],
+          clientwebsite: "https://www.liome.fr",
+          projectduration: "6 mois",
 
-          projectmanager: ["Reihane B."],
-
-          projectduration: "6 months",
+          credits: {
+            frontenddeveloper: {
+              1: { name: "Reihane B.", link: "linkedin.com" },
+              2: { name: "Jawed M.", link: "linkedin.com" },
+            },
+            backenddeveloper: {
+              1: { name: "Reihane B.", link: "linkedin.com" },
+            },
+            uxuidesigner: {
+              1: { name: "Reihane B.", link: "linkedin.com" },
+              2: { name: "Jawed M.", link: "linkedin.com" },
+            },
+            projectmanager: {
+              1: { name: "Reihane B.", link: "linkedin.com" },
+            },
+          },
         },
       },
     },
