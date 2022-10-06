@@ -3,12 +3,15 @@ import Footer from "./components/Footer";
 import WorkOrLab from "./components/WorkOrLab";
 import reactLogo from "./assets/react.svg";
 import profilePicture from "./assets/profile-picture.png";
-import { NavLink } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import WorkData from "./database/WorkData";
 import { useRef } from "react";
+import LabData from "./database/LabData";
 
 export default function Home(): JSX.Element {
+  const { id } = useParams();
   const workArr = WorkData();
+  const labArr = LabData();
 
   return (
     <>
@@ -71,34 +74,63 @@ https://www.linkedin.com/in/reihaneb/"
         </div>
 
         <div className="mt-32">
-          {workArr.map((project: any, index: number) => (
-            <NavLink to={`/project/${project.url}`} key={index}>
-              <div className="flex flex-nowrap justify-center items-center my-32">
-                <hr className=" border-gray-400 mr-4 w-1/2" />
-                <span className="text-gray-400">{index + 1}</span>
-                <hr className=" border-gray-400 ml-4 w-1/2" />
-              </div>
-              <div className="">
-                <h2 className="">{project.projectName}</h2>
-                <p className="">{project.jobTitle}</p>
-                <div className="flex flex-wrap">
-                  {project.stackSummary.map((stack: any, index: any) => (
-                    <p
-                      key={index}
-                      className="mt-4 bg-gray-200 px-6 py-2 rounded-xl w-fit mr-4"
-                    >
-                      {stack}
-                    </p>
-                  ))}
-                </div>
-                <img
-                  src={project.firstImage}
-                  alt="Quarry"
-                  className="mt-6 w-full rounded-xl"
-                />
-              </div>
-            </NavLink>
-          ))}
+          {id === "lab"
+            ? labArr.map((project: any, index: number) => (
+                <NavLink to={`/project/${project.url}`} key={index}>
+                  <div className="flex flex-nowrap justify-center items-center my-32">
+                    <hr className=" border-gray-400 mr-4 w-1/2" />
+                    <span className="text-gray-400">{index + 1}</span>
+                    <hr className=" border-gray-400 ml-4 w-1/2" />
+                  </div>
+                  <div className="">
+                    <h2 className="">{project.projectName}</h2>
+                    <p className="">{project.jobTitle}</p>
+                    <div className="flex flex-wrap">
+                      {project.stackSummary.map((stack: any, index: any) => (
+                        <p
+                          key={index}
+                          className="mt-4 bg-gray-200 px-6 py-2 rounded-xl w-fit mr-4"
+                        >
+                          {stack}
+                        </p>
+                      ))}
+                    </div>
+                    <img
+                      src={project.firstImage}
+                      alt="Quarry"
+                      className="mt-6 w-full rounded-xl"
+                    />
+                  </div>
+                </NavLink>
+              ))
+            : workArr.map((project: any, index: number) => (
+                <NavLink to={`/project/${project.url}`} key={index}>
+                  <div className="flex flex-nowrap justify-center items-center my-32">
+                    <hr className=" border-gray-400 mr-4 w-1/2" />
+                    <span className="text-gray-400">{index + 1}</span>
+                    <hr className=" border-gray-400 ml-4 w-1/2" />
+                  </div>
+                  <div className="">
+                    <h2 className="">{project.projectName}</h2>
+                    <p className="">{project.jobTitle}</p>
+                    <div className="flex flex-wrap">
+                      {project.stackSummary.map((stack: any, index: any) => (
+                        <p
+                          key={index}
+                          className="mt-4 bg-gray-200 px-6 py-2 rounded-xl w-fit mr-4"
+                        >
+                          {stack}
+                        </p>
+                      ))}
+                    </div>
+                    <img
+                      src={project.firstImage}
+                      alt="Quarry"
+                      className="mt-6 w-full rounded-xl"
+                    />
+                  </div>
+                </NavLink>
+              ))}
         </div>
         <hr className="my-36 border-gray-400" />
         <div className="sticky bottom-10 w-full px-16">

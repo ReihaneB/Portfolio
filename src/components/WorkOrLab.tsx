@@ -1,39 +1,54 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { NavLink, useParams } from "react-router-dom";
 
 export default function WorkOrLab() {
+  const { id } = useParams();
   const [isToggle, setIsToggle] = useState<boolean>(false);
+
+  useEffect(() => {
+    if (id === "work") {
+      setIsToggle(false);
+    }
+    if (id === "lab") {
+      setIsToggle(true);
+    }
+  }, [id]);
+
   return (
     <>
       <nav className="bg-gray-700 rounded-full flex justify-center items-center z-10">
         <ul className="bg-gray-500 w-full flex flex-nowrap relative rounded-full m-4">
-          <input
-            className="hidden"
-            type="radio"
-            name="workOrLab"
-            id="work"
-            onChange={() => setIsToggle(false)}
-            defaultChecked
-          />
+          <NavLink to="/work">
+            <input
+              className="hidden"
+              type="radio"
+              name="workOrLab"
+              id="work"
+              onChange={() => setIsToggle(false)}
+              defaultChecked
+            />
+          </NavLink>
           <label
             htmlFor="work"
             className={` ${
-              isToggle === false ? `text-black` : `text-white`
+              !isToggle ? `text-black` : `text-white`
             } z-20 text-center grow py-3 duration-500`}
           >
             Work
           </label>
-
-          <input
-            className="hidden"
-            type="radio"
-            name="workOrLab"
-            id="lab"
-            onChange={() => setIsToggle(true)}
-          />
+          <NavLink to="/lab">
+            <input
+              className="hidden"
+              type="radio"
+              name="workOrLab"
+              id="lab"
+              onChange={() => setIsToggle(true)}
+            />
+          </NavLink>
           <label
             htmlFor="lab"
             className={` ${
-              isToggle === true ? `text-black` : `text-white`
+              isToggle ? `text-black` : `text-white`
             } z-20 text-center grow py-3 duration-500`}
           >
             Lab
@@ -41,7 +56,7 @@ export default function WorkOrLab() {
 
           <a
             className={`w-1/2 h-full absolute bg-white rounded-full transform transition-all duration-500 ${
-              isToggle === false ? `left-0` : `left-1/2`
+              isToggle ? `left-1/2` : `left-0`
             }`}
           ></a>
         </ul>

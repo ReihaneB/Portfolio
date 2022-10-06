@@ -7,7 +7,7 @@ export default function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/:id" element={<Home />} />
         <Route path="*" element={<Error404 />} />
         <Route path="/project/:id" element={<Project />} />
       </Routes>
