@@ -72,7 +72,7 @@ https://www.linkedin.com/in/reihaneb/"
 
         <div className="mt-32">
           {workArr.map((project: any, index: number) => (
-            <NavLink to={`/project/${project.id}`} key={index}>
+            <NavLink to={`/project/${project.url}`} key={index}>
               <div className="flex flex-nowrap justify-center items-center my-32">
                 <hr className=" border-gray-400 mr-4 w-1/2" />
                 <span className="text-gray-400">{index + 1}</span>
