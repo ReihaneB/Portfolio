@@ -7,6 +7,7 @@ export default function WorkData(): any {
   return [
     {
       id: 1,
+      url: "liome-front-end-developer",
       projectName: "Liome",
       jobTitle: "Full-Stack developer",
       firstImage: liomewebsite,
@@ -107,6 +108,7 @@ export default function WorkData(): any {
     },
     {
       id: 2,
+      url: "liome-3d-artist",
       projectName: "Liome",
       jobTitle: "3D Artist",
       firstImage: quarry,
@@ -165,6 +167,7 @@ export default function WorkData(): any {
     },
     {
       id: 3,
+      url: "ultrabook-front-end-developer",
       projectName: "Ultrabook",
       jobTitle: "Front-end developer",
       firstImage: ultrabook,

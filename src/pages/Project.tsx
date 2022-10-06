@@ -11,7 +11,10 @@ export default function Project(): JSX.Element {
   const { id } = useParams();
   const workArr = WorkData();
 
-  const nextProject: number = Number(id) < workArr.length ? Number(id) + 1 : 1;
+  const actualProjectID: number =
+    workArr.findIndex((projectID: any) => projectID.url === id) + 1;
+  const nextProjectID: number =
+    actualProjectID < workArr.length ? actualProjectID + 1 : 1;
 
   return (
     <div className="mx-16">
@@ -22,7 +25,8 @@ export default function Project(): JSX.Element {
       </div>
 
       {workArr
-        .filter((work: any) => work.id === Number(id))
+        .filter((work: any) => work.url === id)
+
         .map((project: any, index: number) => (
           <div key={index}>
             <div className="mt-32">
@@ -257,11 +261,11 @@ export default function Project(): JSX.Element {
               <hr className=" border-gray-400 ml-4 w-1/2" />
             </div>
 
-            <NavLink to={`/project/${nextProject}`}>
-              {workArr
-                .filter((work: any) => work.id === nextProject)
-                .map((project: any, index: number) => (
-                  <div key={index}>
+            {workArr
+              .filter((work: any) => work.id === nextProjectID)
+              .map((project: any, index: number) => (
+                <NavLink to={`/project/${project.url}`} key={index}>
+                  <div>
                     <div className="mt-32">
                       <h2 className="">{project.projectName}</h2>
                       <p className="">{project.jobTitle}</p>
@@ -282,8 +286,8 @@ export default function Project(): JSX.Element {
                       />
                     </div>
                   </div>
-                ))}
-            </NavLink>
+                </NavLink>
+              ))}
           </div>
         ))}
       <hr className="my-36 border-gray-400" />
