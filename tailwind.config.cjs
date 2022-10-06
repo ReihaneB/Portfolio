@@ -13,7 +13,10 @@ module.exports = {
           fontSize: theme("fontSize.2xl"),
           fontWeight: theme("fontWeight.medium"),
         },
-        h3: { fontSize: theme("fontSize.lg") },
+        h3: { fontSize: theme("fontSize.xl") },
+        h4: {
+          fontWeight: theme("fontWeight.medium"),
+        },
       });
     }),
   ],
