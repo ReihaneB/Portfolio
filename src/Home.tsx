@@ -1,18 +1,17 @@
 import Logo from "./components/Logo";
+import Footer from "./components/Footer";
 import WorkOrLab from "./components/WorkOrLab";
 import reactLogo from "./assets/react.svg";
 import profilePicture from "./assets/profile-picture.png";
 import { NavLink } from "react-router-dom";
 import WorkData from "./database/WorkData";
+import { useRef } from "react";
 
 export default function Home(): JSX.Element {
   const workArr = WorkData();
 
   return (
     <>
-      <div className="fixed bottom-8 w-full px-16">
-        <WorkOrLab />
-      </div>
       <div className="mx-16">
         <div className="mt-12 flex justify-center ">
           <Logo />
@@ -83,7 +82,7 @@ https://www.linkedin.com/in/reihaneb/"
                 <h2 className="">{project.projectName}</h2>
                 <p className="">{project.jobTitle}</p>
                 <div className="flex flex-wrap">
-                  {project.stack.stackSummary.map((stack: any, index: any) => (
+                  {project.stackSummary.map((stack: any, index: any) => (
                     <p
                       key={index}
                       className="mt-4 bg-gray-200 px-6 py-2 rounded-xl w-fit mr-4"
@@ -100,7 +99,14 @@ https://www.linkedin.com/in/reihaneb/"
               </div>
             </NavLink>
           ))}
-          <hr className="my-36 border-gray-400" />
+        </div>
+        <hr className="my-36 border-gray-400" />
+        <div className="sticky bottom-10 w-full px-16">
+          <WorkOrLab />
+        </div>
+        <hr className="my-36 border-gray-400" />
+        <div className="mb-36">
+          <Footer />
         </div>
       </div>
     </>
