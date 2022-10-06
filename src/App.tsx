@@ -9,7 +9,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="*" element={<Error404 />} />
-        <Route path="/project" element={<Project />} />
+        <Route path="/project/:id" element={<Project />} />
       </Routes>
     </BrowserRouter>
   );

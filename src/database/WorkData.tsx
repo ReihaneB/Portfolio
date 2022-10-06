@@ -105,7 +105,6 @@ export default function WorkData(): any {
         },
       },
     },
-
     {
       id: 2,
       projectName: "Liome",
@@ -117,31 +116,53 @@ export default function WorkData(): any {
       theGoal: "Réaliser des visuels pour le site web",
       theGoalDescription:
         "Refaire le site de façon à coller au visuel et son identité forte, tout en laissant la possibilité au client de pouvoir modifier le contenu graphique du site chaque année sans revoir la structure.",
+      stackSummary: ["Blender", "Photoshop", "Lightroom", "Panther 3D"],
       stack: {
-        stackSummary: ["Blender", "Photoshop", "Lightroom", "Panther 3D"],
         creation: {
-          jewelmodelisation: { intitule: "Panther 3D", img: "" },
-          decorations: { intitule: "Blender", img: "" },
+          jewelmodelisation: {
+            1: { intitule: "Panther 3D", img: reactLogo },
+            2: { intitule: "Blender", img: reactLogo },
+          },
         },
         edition: {
-          colorimetry: { intitule: "Lightroom", img: "" },
-          effects: { intitule: "Photoshop", img: "" },
+          colorimetry: { 1: { intitule: "Lightroom", img: reactLogo } },
+          effects: {
+            1: { intitule: "Photoshop", img: reactLogo },
+          },
         },
       },
       images: {
-        jewelname: ["", "", ""],
-        jewelnamee: ["", "", ""],
+        jewelname: {
+          1: { alt: "Homepage", img: quarry },
+          2: { alt: "Homepage", img: quarry },
+          3: { alt: "Homepage", img: quarry },
+        },
+        jewelnamee: {
+          1: { alt: "Homepage", img: quarry },
+          2: { alt: "Homepage", img: quarry },
+          3: { alt: "Homepage", img: quarry },
+        },
       },
       additionalinformations: {
-        credits: {
+        delivreables: [
+          "Modélisation 3D de bijoux",
+          "Modélisation 3D prête pour l'impression 3D",
+          "Décors 3D",
+        ],
+
+        projectInformations: {
           client: "Liome",
-          clientwebsite: "https://liome.fr/",
-          artist3d: ["Reihane B."],
+          clientwebsite: "https://www.liome.fr",
           projectduration: "1.2 years",
+
+          credits: {
+            artist3d: {
+              1: { name: "Reihane B.", link: "linkedin.com" },
+            },
+          },
         },
       },
     },
-
     {
       id: 3,
       projectName: "Ultrabook",
@@ -153,24 +174,38 @@ export default function WorkData(): any {
       theGoal: "Améliorer l'expérience utilisateur avec un nouveau design",
       theGoalDescription:
         "Refaire le site de façon à coller au visuel et son identité forte, tout en laissant la possibilité au client de pouvoir modifier le contenu graphique du site chaque année sans revoir la structure.",
+      stackSummary: ["HTML", "PHP", "Figma"],
       stack: {
-        stackSummary: ["HTML", "PHP", "Figma"],
         frontend: {
-          frontendlanguage: { intitule: "HTML", img: "" },
-          csslanguage: { intitule: "CSS vanilla", img: "" },
+          frontendlanguage: {
+            1: { intitule: "HTML", img: reactLogo },
+          },
+          csslanguage: {
+            1: { intitule: "CSS vanilla", img: reactLogo },
+          },
         },
         backend: {
-          backendlanguage: { intitule: "PHP", img: "" },
-        },
-        uxuidesign: {
-          intitule: "Figma",
-          img: "",
+          backendlanguage: {
+            1: { intitule: "PHP", img: reactLogo },
+          },
+          uxuidesign: {
+            graphism: {
+              1: { intitule: "Figma", img: reactLogo },
+            },
+          },
         },
       },
       images: {
-        homepage: ["", "", ""],
-        productPage: ["", "", ""],
-        accountPage: ["", "", ""],
+        homepage: {
+          1: { alt: "Homepage", img: ultrabook },
+          2: { alt: "Homepage", img: ultrabook },
+          3: { alt: "Homepage", img: ultrabook },
+        },
+        productPage: {
+          1: { alt: "Homepage", img: ultrabook },
+          2: { alt: "Homepage", img: ultrabook },
+          3: { alt: "Homepage", img: ultrabook },
+        },
       },
       additionalinformations: {
         delivreables: [
@@ -179,23 +214,32 @@ export default function WorkData(): any {
           "UX/UI Design",
         ],
         graphicalcharter: {
-          typography: {
-            fontfamily: ["Montserrat", "Antic didone"],
-          },
+          typography: ["Montserrat", "Antic didone"],
+
           colors: {
             1: { name: "Fond", color: "#282828" },
             2: { name: "Card", color: "#666666" },
             3: { name: "Surlign", color: "#59B5C9" },
           },
         },
-        credits: {
+
+        projectInformations: {
           client: "Ultrabook",
-          clientwebsite: "https://ultra-book.com/",
-          frontenddeveloper: ["Reihane B."],
-          uxuidesigner: ["Reihane B."],
+          clientwebsite: "https://www.ultra-book.com/",
           projectduration: "2 months",
+
+          credits: {
+            frontenddeveloper: {
+              1: { name: "Reihane B.", link: "linkedin.com" },
+            },
+            uxuidesigner: {
+              1: { name: "Reihane B.", link: "linkedin.com" },
+            },
+          },
         },
       },
     },
+
+    //
   ];
 }
