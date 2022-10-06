@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCrosshairs } from "@fortawesome/free-solid-svg-icons";
 import reactLogo from "../assets/react.svg";
 import WorkData from "../database/WorkData";
+import Footer from "../components/Footer";
 
 export default function Project(): JSX.Element {
   const { id } = useParams();
@@ -285,6 +286,10 @@ export default function Project(): JSX.Element {
             </NavLink>
           </div>
         ))}
+      <hr className="my-36 border-gray-400" />
+      <div className="mb-36">
+        <Footer />
+      </div>
     </div>
   );
 }
