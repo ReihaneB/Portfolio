@@ -35,43 +35,45 @@ export default function Home(): JSX.Element {
           </button>
         </div>
 
-        <div className="flex justify-center mt-36">
-          <img
-            src={profilePicture}
-            alt="Profile picture of Reihane B."
-            className="rounded-xl w-full"
-          />
-        </div>
-        <div className="">
-          <p className="mt-6 text-center">
-            <a
-              href="
-https://www.linkedin.com/in/reihaneb/"
-              target="_blank"
-              rel="noreferrer"
-              className="text-blue-500 bg-blue-100 rounded-full px-4 py-2 mr-2"
-            >
-              LinkedIn
-            </a>
-            <a
-              href=""
-              target="_blank"
-              rel="noreferrer"
-              className="text-blue-500 bg-blue-100 rounded-full px-4 py-2"
-            >
-              GitHub
-            </a>
-          </p>
-          <div className="mt-6">
-            <h2 className="">Jewelry, front web development, luxurytech</h2>
-            <p className="mt-4">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus
-              id ut sollicitudin facilisi. Nibh ornare ac adipiscing laoreet.
-              Euismod justo sagittis, non pellentesque vitae. Mauris faucibus
-              proin nisi, faucibus.
-            </p>
+        <NavLink to="/about">
+          <div className="flex justify-center mt-36">
+            <img
+              src={profilePicture}
+              alt="Profile picture of Reihane B."
+              className="rounded-xl w-full"
+            />
           </div>
-        </div>
+          <div className="">
+            <p className="mt-6 text-center">
+              <a
+                href="
+          https://www.linkedin.com/in/reihaneb/"
+                target="_blank"
+                rel="noreferrer"
+                className="text-blue-500 bg-blue-100 rounded-full px-4 py-2 mr-2"
+              >
+                LinkedIn
+              </a>
+              <a
+                href=""
+                target="_blank"
+                rel="noreferrer"
+                className="text-blue-500 bg-blue-100 rounded-full px-4 py-2"
+              >
+                GitHub
+              </a>
+            </p>
+            <div className="mt-6">
+              <h2 className="">Jewelry, front web development, luxurytech</h2>
+              <p className="mt-4">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus
+                id ut sollicitudin facilisi. Nibh ornare ac adipiscing laoreet.
+                Euismod justo sagittis, non pellentesque vitae. Mauris faucibus
+                proin nisi, faucibus.
+              </p>
+            </div>
+          </div>
+        </NavLink>
 
         <div className="mt-32">
           {id === "lab"
