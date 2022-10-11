@@ -5,18 +5,24 @@ import reactLogo from "./assets/react.svg";
 import profilePicture from "./assets/profile-picture.png";
 import { NavLink, useParams } from "react-router-dom";
 import WorkData from "./database/WorkData";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import LabData from "./database/LabData";
+import ContactForm from "./components/ContactForm";
 
 export default function Home(): JSX.Element {
   const { id } = useParams();
   const workArr = WorkData();
   const labArr = LabData();
 
+  const [isContactFormOpen, setIsContactFormOpen] = useState<boolean>(false);
+
   return (
     <>
+      {isContactFormOpen && (
+        <ContactForm close={() => setIsContactFormOpen(!isContactFormOpen)} />
+      )}
       <div className="mx-16">
-        <div className="mt-12 flex justify-center ">
+        <div className="pt-12 flex justify-center ">
           <Logo />
         </div>
         <p className="mt-36 text-3xl text-center">
@@ -29,8 +35,12 @@ export default function Home(): JSX.Element {
         <div className="flex justify-center mt-6">
           <img src={reactLogo} className="animate-spin" alt="React logo" />
         </div>
+
         <div className="mt-6">
-          <button className="w-full max-w-96 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full  py-3 text-white">
+          <button
+            onClick={() => setIsContactFormOpen(!isContactFormOpen)}
+            className="w-full max-w-96 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full  py-3 text-white"
+          >
             Démarrer un projet
           </button>
         </div>
