@@ -86,168 +86,179 @@ export default function ContactForm(props: any): JSX.Element {
   }, [wrapperRef]);
 
   return (
-    <>
-      <div className="bg-black/40 w-screen h-screen fixed z-40 "></div>
-
-      <div ref={wrapperRef}>
-        <div className="fixed z-50 p-16 mx-16 grid grid-rows-[50px_1fr_50px] rounded-xl bg-red-500">
-          <div className="bg-gray-700 w-full h-8 rounded-full p-2">
+    <div className="bg-black/40 inset-0 fixed z-40 backdrop-blur-sm flex justify-center items-center py-8">
+      <div
+        ref={wrapperRef}
+        className="m-16 min-h-0 max-h-full overflow-y-auto p-8 rounded-xl bg-white"
+      >
+        <div>
+          <p className="text-center text-gray-700">{pageID} / 8</p>
+          <div className="bg-gray-700 w-full h-8 rounded-full p-2 mt-4">
             <div
               className={`bg-green-500 ${calcul} h-4 rounded-full transform transition-all duration-500`}
             ></div>
           </div>
+        </div>
 
-          <div className="flex justify-center items-center">
-            {pageID === 1 ? (
-              <div className="">
-                <h2 className="text-center ">Quels sont vos besoins ?</h2>
-                {skills.map((item: any) =>
-                  Object.values(item.whaticandoforyou).map(
-                    (item: any, index: number) => (
-                      <div
-                        key={index}
-                        onClick={() => setPageID(pageID + 1)}
-                        className="bg-blue-100 flex rounded-xl p-4 mt-8"
-                      >
-                        <img src={item.img} className="w-12 mr-4" />
-                        <p>{item.intitule}</p>
-                      </div>
-                    )
+        <div className="mt-8">
+          {pageID === 1 ? (
+            <div className="">
+              <h2 className="text-center ">Quels sont vos besoins ?</h2>
+              {skills.map((item: any) =>
+                Object.values(item.whaticandoforyou).map(
+                  (item: any, index: number) => (
+                    <div
+                      key={index}
+                      onClick={() => setPageID(pageID + 1)}
+                      className="bg-blue-100 flex rounded-xl p-4 mt-8"
+                    >
+                      <img src={item.img} className="w-12 mr-4" />
+                      <p>{item.intitule}</p>
+                    </div>
                   )
-                )}
+                )
+              )}
+            </div>
+          ) : pageID === 2 ? (
+            <div className="">
+              <h2 className="text-center ">
+                Quel est la durée estimé pour votre projet ?
+              </h2>
+              {projectDuration.map((item: string, index: number) => (
+                <div
+                  key={index}
+                  onClick={() => setPageID(pageID + 1)}
+                  className="bg-blue-100 flex justify-center rounded-xl p-4 mt-8"
+                >
+                  <p>{item}</p>
+                </div>
+              ))}
+            </div>
+          ) : pageID === 3 ? (
+            <div className="">
+              <h2 className="text-center">
+                Quel budget est alloué à ce projet ?
+              </h2>
+              {projectBudget.map((item: string, index: number) => (
+                <div
+                  key={index}
+                  onClick={() => setPageID(pageID + 1)}
+                  className="bg-blue-100 flex justify-center rounded-xl p-4 mt-8"
+                >
+                  <p>{item}</p>
+                </div>
+              ))}
+            </div>
+          ) : pageID === 4 ? (
+            <div className="">
+              <h2 className="text-center">
+                Quel budget est alloué à ce projet ?
+              </h2>
+              {projectTime.map((item: string, index: number) => (
+                <div
+                  key={index}
+                  onClick={() => setPageID(pageID + 1)}
+                  className="bg-blue-100 flex justify-center rounded-xl p-4 mt-8"
+                >
+                  <p>{item}</p>
+                </div>
+              ))}
+            </div>
+          ) : pageID === 5 ? (
+            <div className="">
+              <h2 className="text-center ">
+                Quelques informations sur votre projet..
+              </h2>
+              <input
+                placeholder="Nom et prénom"
+                className="bg-blue-100 w-full rounded-xl p-4 mt-8"
+                value={name}
+                onChange={(e) => setname(e.target.value)}
+              ></input>
+              <input
+                placeholder="Nom de l'entreprise"
+                className="bg-blue-100 w-full rounded-xl p-4 mt-8"
+              ></input>
+              <input
+                placeholder="Email"
+                className="bg-blue-100 w-full rounded-xl p-4 mt-8"
+                value={email}
+                onChange={(e) => setemail(e.target.value)}
+              ></input>
+              <textarea
+                placeholder="Décrivez votre projet"
+                className="bg-blue-100 w-full rounded-xl p-4 mt-8"
+              ></textarea>
+              <button
+                onClick={() => setPageID(pageID + 1)}
+                className="bg-blue-500 w-full rounded-xl p-4 mt-8"
+              >
+                Envoyer
+              </button>
+            </div>
+          ) : pageID === 6 ? (
+            <div className="">
+              <h2 className="text-center ">
+                Comment avez-vous entendu parler de mon travail ?
+              </h2>
+              {hearAboutMe.map((item: string, index: number) => (
+                <div
+                  key={index}
+                  onClick={() => setPageID(pageID + 1)}
+                  className="bg-blue-100 flex justify-center rounded-xl p-4 mt-8"
+                >
+                  <p>{item}</p>
+                </div>
+              ))}
+            </div>
+          ) : pageID === 7 ? (
+            <div className="">
+              <h2 className="text-center ">
+                Quand souhaitez-vous que je vous recontacte ?
+              </h2>
+              <div
+                onClick={toggleQuickResponseTrue}
+                className="bg-blue-100 rounded-xl p-4 mt-8"
+              >
+                <p className="text-center">Je veux une réponse rapide</p>
               </div>
-            ) : pageID === 2 ? (
+              <div
+                onClick={toggleQuickResponseFalse}
+                className="bg-blue-100 rounded-xl p-4 mt-8"
+              >
+                <p className="text-center">
+                  J’ai le temps de discuter de mon projet
+                </p>
+              </div>
+            </div>
+          ) : pageID === 8 ? (
+            isQuickResponse ? (
               <div className="">
                 <h2 className="text-center ">
-                  Quel est la durée estimé pour votre projet ?
+                  Votre demande à bien été envoyé. J'y répondrai dans les plus
+                  brefs délais.
                 </h2>
-                {projectDuration.map((item: string, index: number) => (
-                  <div
-                    key={index}
-                    onClick={() => setPageID(pageID + 1)}
-                    className="bg-blue-100 flex justify-center rounded-xl p-4 mt-8"
-                  >
-                    <p>{item}</p>
-                  </div>
-                ))}
               </div>
-            ) : pageID === 3 ? (
+            ) : (
               <div className="">
                 <h2 className="text-center">
-                  Quel budget est alloué à ce projet ?
+                  Prenons 15 minutes pour en discuter, choississez une date qui
+                  vous convient pour réserver une consultation gratuite
                 </h2>
-                {projectBudget.map((item: string, index: number) => (
-                  <div
-                    key={index}
-                    onClick={() => setPageID(pageID + 1)}
-                    className="bg-blue-100 flex justify-center rounded-xl p-4 mt-8"
-                  >
-                    <p>{item}</p>
-                  </div>
-                ))}
-              </div>
-            ) : pageID === 4 ? (
-              <div className="">
-                <h2 className="text-center mt-8">
-                  Quel budget est alloué à ce projet ?
-                </h2>
-                {projectTime.map((item: string, index: number) => (
-                  <div
-                    key={index}
-                    onClick={() => setPageID(pageID + 1)}
-                    className="bg-blue-100 flex justify-center rounded-xl p-4 mt-8"
-                  >
-                    <p>{item}</p>
-                  </div>
-                ))}
-              </div>
-            ) : pageID === 5 ? (
-              <div className="">
-                <h2 className="text-center ">
-                  Quelques informations sur votre projet..
-                </h2>
-                <input
-                  placeholder="Nom et prénom"
-                  className="bg-blue-100 w-full rounded-xl p-4 mt-8"
-                  value={name}
-                  onChange={(e) => setname(e.target.value)}
-                ></input>
-                <input
-                  placeholder="Nom de l'entreprise"
-                  className="bg-blue-100 w-full rounded-xl p-4 mt-8"
-                ></input>
-                <input
-                  placeholder="Email"
-                  className="bg-blue-100 w-full rounded-xl p-4 mt-8"
-                  value={email}
-                  onChange={(e) => setemail(e.target.value)}
-                ></input>
-                <textarea
-                  placeholder="Décrivez votre projet"
-                  className="bg-blue-100 w-full rounded-xl p-4 mt-8"
-                ></textarea>
-                <button
-                  onClick={() => setPageID(pageID + 1)}
-                  className="bg-blue-500 w-full rounded-xl p-4 mt-8"
-                >
-                  Envoyer
-                </button>
-              </div>
-            ) : pageID === 6 ? (
-              <div className="">
-                <h2 className="text-center ">
-                  Comment avez-vous entendu parler de mon travail ?
-                </h2>
-                {hearAboutMe.map((item: string, index: number) => (
-                  <div
-                    key={index}
-                    onClick={() => setPageID(pageID + 1)}
-                    className="bg-blue-100 flex justify-center rounded-xl p-4 mt-8"
-                  >
-                    <p>{item}</p>
-                  </div>
-                ))}
-              </div>
-            ) : pageID === 7 ? (
-              <div className="">
-                <h2 className="text-center ">
-                  Quand souhaitez-vous que je vous recontacte ?
-                </h2>
-                <div
-                  onClick={toggleQuickResponseTrue}
-                  className="bg-blue-100 flex justify-center rounded-xl p-4 mt-8"
-                >
-                  <p>Je veux une réponse rapide</p>
-                </div>
-                <div
-                  onClick={toggleQuickResponseFalse}
-                  className="bg-blue-100 flex justify-center rounded-xl p-4 mt-8"
-                >
-                  <p>J’ai le temps de discuter de mon projet</p>
-                </div>
-              </div>
-            ) : pageID === 8 ? (
-              isQuickResponse ? (
-                <div className="">
-                  <h2 className="text-center ">
-                    Votre demande à bien été envoyé. J'y répondrai dans les plus
-                    brefs délais.
-                  </h2>
-                </div>
-              ) : (
-                <div className="">
-                  <h2 className="text-center">
-                    Prenons 15 minutes pour en discuter, choississez une date
-                    qui vous convient pour réserver une consultation gratuite
-                  </h2>
+                <div className="mt-8">
                   <InlineWidget
                     url="https://calendly.com/skryleiix/15-minute-meeting"
                     prefill={prefill}
+                    styles={{
+                      height: "1000px",
+                    }}
                   />
                 </div>
-              )
-            ) : null}
-          </div>
+              </div>
+            )
+          ) : null}
+        </div>
+        <div className=" flex items-end justify-center mt-8">
           <div className="flex justify-center ">
             <div
               onClick={
@@ -260,6 +271,6 @@ export default function ContactForm(props: any): JSX.Element {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
