@@ -191,10 +191,11 @@ export default function WorkData(): any {
           backendlanguage: {
             1: { intitule: "PHP", img: reactLogo },
           },
-          uxuidesign: {
-            graphism: {
-              1: { intitule: "Figma", img: reactLogo },
-            },
+         
+        },
+        uxuidesign: {
+          graphism: {
+            1: { intitule: "Figma", img: reactLogo },
           },
         },
       },
