@@ -147,7 +147,7 @@ export default function ContactForm(props: any): JSX.Element {
                         setNeeds(item.intitule);
                         setPageID(pageID + 1);
                       }}
-                      className="bg-blue-100 flex rounded-xl p-4 mt-8"
+                      className="bg-blue-100 flex items-center rounded-xl p-4 mt-8"
                     >
                       <img src={item.img} className="w-12 mr-4" />
                       <p>{item.intitule}</p>

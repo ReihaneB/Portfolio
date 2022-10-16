@@ -15,7 +15,7 @@ export default function WorkOrLab() {
   }, [id]);
 
   return (
-    <>
+    <div className="w-96">
       <nav className="bg-gray-700 rounded-full flex justify-center items-center z-10">
         <ul className="bg-gray-500 w-full flex flex-nowrap relative rounded-full m-4">
           <NavLink to="/work">
@@ -54,13 +54,13 @@ export default function WorkOrLab() {
             Lab
           </label>
 
-          <a
+          <div
             className={`w-1/2 h-full absolute bg-white rounded-full transform transition-all duration-500 ${
               isToggle ? `left-1/2` : `left-0`
             }`}
-          ></a>
+          ></div>
         </ul>
       </nav>
-    </>
+      </div>
   );
 }
