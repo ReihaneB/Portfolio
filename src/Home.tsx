@@ -23,7 +23,7 @@ export default function Home(): JSX.Element {
       {isContactFormOpen && (
         <ContactForm close={() => setIsContactFormOpen(!isContactFormOpen)} />
       )}
-      <div className="mt-12 lg:flex lg:justify-center">
+      <div className="mt-12 lg:flex lg:justify-center mb-36">
         <div className="mx-16 lg:w-[1024px]">
 
           
@@ -162,8 +162,7 @@ export default function Home(): JSX.Element {
             <div className="sticky bottom-10 flex justify-center lg:hidden">
               <WorkOrLab />
             </div>
-          <hr className="my-36 border-gray-400" />
-          <div className="mb-36">
+          <div className="">
             <Footer />
           </div>
         </div>

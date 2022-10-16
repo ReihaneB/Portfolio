@@ -16,7 +16,7 @@ export default function About(): JSX.Element {
 
   const navigate = useNavigate();
   return (
-    <div className="mt-12 lg:flex lg:justify-center">
+    <div className="mt-12 mb-36 lg:flex lg:justify-center">
       <div className="mx-16 lg:w-[1024px]">
         <div onClick={() => navigate(-1)} className="flex justify-center ">
           <Logo />
@@ -186,19 +186,7 @@ export default function About(): JSX.Element {
               ))
             )}
           </div>
-          <div className="flex flex-nowrap justify-center items-center my-32">
-            <hr className=" border-gray-400 mr-4 w-full" />
-          </div>
-          <h2 className="text-center">Prenons rendez-vous !</h2>
-          <p className="mt-8">
-            Réservez un créneau gratuit de 15 min où nous échangerons sur votre
-            projet, vos problématiques et comment les résoudre.
-          </p>
-          <div className="mt-6">
-            <button className="w-full max-w-96 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full  py-3 text-white">
-              Réserver une consultation
-            </button>
-          </div>
+          
           <div className="flex flex-nowrap justify-center items-center my-32">
             <hr className=" border-gray-400 mr-4 w-full" />
           </div>
@@ -223,12 +211,8 @@ export default function About(): JSX.Element {
               />
             </div>
           </NavLink>
-          <div className="flex flex-nowrap justify-center items-center my-32">
-            <hr className=" border-gray-400 mr-4 w-full" />
-          </div>
-          <div className="mb-32">
+          
             <Footer />
-          </div>
         </div>
       </div>
     </div>

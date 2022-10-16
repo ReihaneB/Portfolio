@@ -27,7 +27,7 @@ export default function Project(): JSX.Element {
 
 
   return (
-    <div className="mt-12 lg:flex lg:justify-center">
+    <div className="mt-12 mb-36 lg:flex lg:justify-center">
       <div className="mx-16 lg:w-[1024px]">
         <div className="flex justify-center ">
           <NavLink to={isLabActive ? "/lab" : "/work"}>
@@ -521,21 +521,7 @@ export default function Project(): JSX.Element {
                 </div>
               ))}
             </div>
-            <div className="flex flex-nowrap justify-center items-center my-32">
-              <hr className=" border-gray-400 mr-4 w-full" />
-            </div>
-            <h2 className="text-center">Prenons rendez-vous !</h2>
-            <div className="flex justify-center">
-              <p className="mt-8 text-center w-[600px]">
-                Réservez un créneau gratuit de 15 min où nous échangerons sur votre
-                projet, vos problématiques et comment les résoudre.
-              </p>
-            </div>
-            <div className="mt-6 flex justify-center">
-              <button className="w-96 max-w-96 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full  py-3 text-white">
-                Réserver une consultation
-              </button>
-            </div>
+            
             {workArr.length > 1 &&
               workArr
                 .filter((work: any) => work.id === nextWorkProjectID)
@@ -571,10 +557,7 @@ export default function Project(): JSX.Element {
                 ))}
           </div>
         ))}
-        <hr className="my-36 border-gray-400" />
-        <div className="mb-36">
           <Footer />
-        </div>
       </div>
     </div>
   );
