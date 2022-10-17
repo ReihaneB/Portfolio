@@ -9,7 +9,11 @@ export default function LabData(): any {
       projectName: "Reihane B.",
       jobTitle: "Front-end developer",
       firstImage: liomewebsite,
-      buttonText: "Code du site",
+      firstImageAlt: "Homepage",
+      secondImage: liomewebsite,
+      secondImageAlt: "Homepage",
+      buttonTextExternalLink: "Code du site",
+      externalLink: "https://github.com/ReihaneB/Portfolio",
       projectDescription:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tincidunt ut proin tortor, condimentum dignissim vitae. Sagittis dolor vel eu rhoncus odio. Ultrices sagittis ac dui sagittis, dui nulla egestas.",
       theGoal: "Augmenter les ventes grâce à une meilleure UX",
