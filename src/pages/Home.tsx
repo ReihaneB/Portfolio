@@ -22,6 +22,8 @@ export default function Home(): JSX.Element {
   const labArr = LabData();
   const social = Social();
 
+  const project = id === "lab" ? labArr : workArr;
+
   const [isContactFormOpen, setIsContactFormOpen] = useState<boolean>(false);
 
   return (
@@ -44,7 +46,7 @@ export default function Home(): JSX.Element {
           <div className="mt-28 text-center">
             <h3 className="text-xl lg:text-2xl font-light">Reihane B.</h3>
             <h1 className="text-5xl font-bold mt-4">Développeur front-end</h1>
-            <h3 className=" text-blue-300 font-light mt-8">
+            <h3 className=" text-blue-500 font-light mt-8">
               <FontAwesomeIcon icon={faLocationArrow} className="mr-4" />
               Basé à Paris, FR
             </h3>
@@ -115,49 +117,34 @@ export default function Home(): JSX.Element {
             </div>
           </div>
           <div className="mt-32">
-            {id === "lab"
-              ? labArr.map((project: any, index: number) => (
-                  <NavLink to={`/project/${project.url}`} key={index}>
-                    <div className="flex flex-nowrap justify-center items-center my-32">
-                      <hr className=" border-gray-400 mr-4 w-1/2" />
-                      <span className="text-gray-400">{index + 1}</span>
-                      <hr className=" border-gray-400 ml-4 w-1/2" />
-                    </div>
-                    <div className="">
-                      <h2 className="">{project.projectName}</h2>
-                      <p className="">{project.jobTitle}</p>
-                      <div className="flex flex-wrap">
-                        {project.stackSummary.map((stack: any, index: any) => (
-                          <p
-                            key={index}
-                            className="mt-4 bg-gray-200 px-6 py-2 rounded-xl w-fit mr-4"
-                          >
-                            {stack}
-                          </p>
-                        ))}
-                      </div>
-                      <img
-                        src={project.firstImage}
-                        alt="Quarry"
-                        className="mt-6 w-full rounded-xl"
-                      />
-                    </div>
-                  </NavLink>
-                ))
-              : workArr.map((project: any, index: number) => (
-                  <NavLink to={`/project/${project.url}`} key={index}>
-                    <div className="flex flex-nowrap justify-center items-center my-32">
-                      <hr className=" border-gray-400 mr-4 w-1/2" />
-                      <span className="text-gray-400">{index + 1}</span>
-                      <hr className=" border-gray-400 ml-4 w-1/2" />
-                    </div>
-                    <img
-                      src={project.firstImage}
-                      alt="Quarry"
-                      className="mt-6 w-full rounded-xl"
-                    />
-                  </NavLink>
-                ))}
+            {project.map((project: any, index: number) => (
+              <NavLink to={`/project/${project.url}`} key={index}>
+                <div className="flex flex-nowrap justify-center items-center my-32">
+                  <hr className=" border-gray-400 mr-4 w-1/2" />
+                  <span className="text-gray-400">{index + 1}</span>
+                  <hr className=" border-gray-400 ml-4 w-1/2" />
+                </div>
+                <div className="">
+                  <h2 className="">{project.projectName}</h2>
+                  <p className="">{project.jobTitle}</p>
+                  <div className="flex flex-wrap">
+                    {project.stackSummary.map((stack: any, index: any) => (
+                      <p
+                        key={index}
+                        className="mt-4 bg-gray-200 px-6 py-2 rounded-xl w-fit mr-4"
+                      >
+                        {stack}
+                      </p>
+                    ))}
+                  </div>
+                  <img
+                    src={project.firstImage}
+                    alt={project.firstImageAlt}
+                    className="mt-6 w-full rounded-xl"
+                  />
+                </div>
+              </NavLink>
+            ))}
           </div>
           <hr className="my-36 border-gray-400 lg:hidden" />
           <div className="sticky bottom-10 flex justify-center lg:hidden">
