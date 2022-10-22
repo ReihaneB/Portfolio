@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import Skills from "../database/Skills";
 import { InlineWidget } from "react-calendly";
 import emailjs from "emailjs-com";
+import Lottie from "react-lottie-player";
 
 const projectDuration = [
   "Une semaine",
@@ -149,7 +150,12 @@ export default function ContactForm(props: any): JSX.Element {
                       }}
                       className="bg-blue-100 flex rounded-xl p-4 mt-8"
                     >
-                      <img src={item.img} className="w-12 mr-4" />
+                      <Lottie
+                        loop
+                        animationData={item.img}
+                        play
+                        style={{ width: 70, height: 70, marginRight: 20 }}
+                      />
                       <p>{item.intitule}</p>
                     </div>
                   )
