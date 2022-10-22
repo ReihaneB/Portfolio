@@ -18,7 +18,7 @@ export default function About(): JSX.Element {
 
   return (
     <div>
-      <div className="mt-12 mb-36 lg:flex lg:justify-center">
+      <div className="mt-8 lg:mt-12 mb-36 lg:flex lg:justify-center">
         <div className="mx-8 lg:mx-16 lg:w-[1024px]">
           <div onClick={() => navigate(-1)} className="flex justify-center ">
             <Logo />
@@ -185,12 +185,12 @@ export default function About(): JSX.Element {
                           play
                           className="h-24 lg:h-40"
                         />
-                        <h3 className="mt-4">{item.intitule}</h3>
+                        <h3 className="mt-4 font-bold">{item.intitule}</h3>
                         <p className="mt-4">{item.description}</p>
                       </div>
                       <div>
                         <div className="flex justify-center">
-                          <h4 className="bg-white w-fit px-8 py-3 mt-8 rounded-full flex justify-center items-center">
+                          <h4 className="bg-white font-bold px-8 py-3 mt-8 rounded-full flex justify-center items-center">
                             Livrables
                           </h4>
                         </div>

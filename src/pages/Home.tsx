@@ -8,13 +8,11 @@ import { useRef, useState } from "react";
 import LabData from "../database/LabData";
 import ContactForm from "../components/ContactForm";
 import Social from "../database/Social";
-import react from "../assets/skills/react.json";
-import Lottie from "react-lottie-player";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLocationArrow } from "@fortawesome/free-solid-svg-icons";
 import typescript from "../assets/icon/typescript.svg";
 import firebase from "../assets/icon/firebase.svg";
-import tailwindcss from "../assets/icon/tailwindcss.svg";
+import react from "../assets/icon/react.svg";
 
 export default function Home(): JSX.Element {
   const { id } = useParams();
@@ -50,18 +48,13 @@ export default function Home(): JSX.Element {
               <FontAwesomeIcon icon={faLocationArrow} className="mr-4" />
               Basé à Paris, FR
             </h3>
-            <div className="flex justify-center space-x-8 mt-8 lg:mt-16 animate-pulse">
+            <div className="flex justify-center space-x-8 mt-8 lg:mt-16">
               <img
                 src={typescript}
                 alt="Typescript logo"
                 className="h-8 lg:h-12"
               />
-              <Lottie
-                loop
-                animationData={react}
-                play
-                className="h-8 lg:h-12 "
-              />
+              <img src={react} alt="Typescript logo" className="h-8 lg:h-12" />
               <img src={firebase} alt="Firebase logo" className="h-8 lg:h-12" />
             </div>
           </div>
