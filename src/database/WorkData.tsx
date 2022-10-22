@@ -88,9 +88,9 @@ export default function WorkData(): any {
       projectName: "Liome",
       jobTitle: "Développeur full-stack",
       firstImage: liomehomepage,
-      firstImageAlt: "Homepage",
+      firstImageAlt: "Page d'accueil de Liome",
       secondImage: liomeproduct,
-      secondImageAlt: "Homepage",
+      secondImageAlt: "Page produit de Liome avec personnalisation",
       buttonTextExternalLink: "En cours de développement",
       externalLink: null,
       projectDescription:
