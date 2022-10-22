@@ -19,11 +19,11 @@ export default function About(): JSX.Element {
   return (
     <div>
       <div className="mt-12 mb-36 lg:flex lg:justify-center">
-        <div className="mx-16 lg:w-[1024px]">
+        <div className="mx-8 lg:mx-16 lg:w-[1024px]">
           <div onClick={() => navigate(-1)} className="flex justify-center ">
             <Logo />
           </div>
-          <div className="lg:flex lg:place-content-between mt-36">
+          <div className="lg:flex lg:place-content-between mt-8 lg:mt-28">
             <div>
               <h2>Reihane B.</h2>
               <p>Basé à Paris</p>

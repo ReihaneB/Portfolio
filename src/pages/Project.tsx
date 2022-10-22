@@ -36,7 +36,7 @@ export default function Project(): JSX.Element {
 
   return (
     <div className="mt-12 mb-36 lg:flex lg:justify-center">
-      <div className="mx-16 lg:w-[1024px]">
+      <div className="mx-8 lg:mx-16 lg:w-[1024px]">
         <div className="flex justify-center ">
           <NavLink to={isLabActive ? "/lab" : "/work"}>
             <Logo />
@@ -45,7 +45,7 @@ export default function Project(): JSX.Element {
 
         {projects.map((project: any, index: number) => (
           <div key={index}>
-            <div className="mt-32">
+            <div className="mt-8 lg:mt-28">
               <h2 className="">{project.projectName}</h2>
               <p className="">{project.jobTitle}</p>
               <div className="flex place-content-between">
@@ -81,7 +81,7 @@ export default function Project(): JSX.Element {
                 href={project.externalLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-8 py-3 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full  text-white"
+                className="px-8 text-center py-3 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full  text-white"
               >
                 {project.buttonTextExternalLink}
               </a>

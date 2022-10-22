@@ -125,7 +125,7 @@ export default function ContactForm(props: any): JSX.Element {
     <div className="bg-black/40 inset-0 fixed z-40 backdrop-blur-sm flex justify-center items-center py-8">
       <div
         ref={wrapperRef}
-        className="m-16 min-h-0 max-h-full overflow-y-auto p-8 rounded-xl bg-white"
+        className="m-8 lg:m-16 min-h-0 max-h-full overflow-y-auto p-8 rounded-xl bg-white"
       >
         <div>
           <div className="bg-gray-700 w-full h-8 rounded-full p-2 mt-4">

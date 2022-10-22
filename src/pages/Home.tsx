@@ -32,7 +32,7 @@ export default function Home(): JSX.Element {
         <ContactForm close={() => setIsContactFormOpen(!isContactFormOpen)} />
       )}
       <div className="mt-12 lg:flex lg:justify-center mb-36">
-        <div className="mx-16 lg:w-[1024px]">
+        <div className="mx-8 lg:mx-16 lg:w-[1024px]">
           <header className="flex justify-center lg:place-content-between">
             <Logo />
             <div className="hidden lg:flex lg:items-center">
@@ -43,14 +43,14 @@ export default function Home(): JSX.Element {
             </div>
           </header>
 
-          <div className="mt-28 text-center">
+          <div className="mt-8 lg:mt-28 text-center">
             <h3 className="text-xl lg:text-2xl font-light">Reihane B.</h3>
             <h1 className="text-5xl font-bold mt-4">Développeur front-end</h1>
             <h3 className=" text-blue-500 font-light mt-8">
               <FontAwesomeIcon icon={faLocationArrow} className="mr-4" />
               Basé à Paris, FR
             </h3>
-            <div className="flex justify-center space-x-8 mt-16 animate-pulse">
+            <div className="flex justify-center space-x-8 mt-8 lg:mt-16 animate-pulse">
               <img
                 src={typescript}
                 alt="Typescript logo"
