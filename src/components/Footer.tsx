@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { NavLink } from "react-router-dom";
 import Social from "../database/Social";
 import ContactForm from "./ContactForm";
 
@@ -33,7 +34,9 @@ export default function Footer(): JSX.Element {
       <div className="flex flex-nowrap justify-center items-center my-32">
         <hr className=" border-gray-400 mr-4 w-full" />
       </div>
-      <h1 className="text-center">rb.</h1>
+      <NavLink to="/work">
+        <h1 className="text-center">rb.</h1>
+      </NavLink>
 
       <p className="flex flex-wrap justify-center items-center ">
         {social.map((item: any) =>
