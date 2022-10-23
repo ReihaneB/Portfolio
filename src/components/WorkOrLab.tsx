@@ -15,9 +15,9 @@ export default function WorkOrLab() {
   }, [id]);
 
   return (
-    <div className="w-96">
+    <div className="w-min lg:w-96">
       <nav className="bg-gray-700 rounded-full flex justify-center items-center z-10">
-        <ul className="bg-gray-500 w-full flex flex-nowrap relative rounded-full m-4">
+        <ul className="bg-gray-500 w-full flex flex-nowrap relative rounded-full m-3 lg:m-4">
           <NavLink to="/work">
             <input
               className="hidden"
@@ -32,7 +32,7 @@ export default function WorkOrLab() {
             htmlFor="work"
             className={` ${
               !isToggle ? `text-black` : `text-white`
-            } z-20 text-center grow py-3 duration-500`}
+            } z-20 text-center grow py-2 lg:py-3 px-8 duration-500`}
           >
             Work
           </label>
@@ -49,7 +49,7 @@ export default function WorkOrLab() {
             htmlFor="lab"
             className={` ${
               isToggle ? `text-black` : `text-white`
-            } z-20 text-center grow py-3 duration-500`}
+            } z-20 text-center grow py-2 lg:py-3 px-8 duration-500`}
           >
             Lab
           </label>
@@ -61,6 +61,6 @@ export default function WorkOrLab() {
           ></div>
         </ul>
       </nav>
-      </div>
+    </div>
   );
 }
