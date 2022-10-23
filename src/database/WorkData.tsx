@@ -94,7 +94,7 @@ export default function WorkData(): any {
       buttonTextExternalLink: "En cours de développement",
       externalLink: null,
       projectDescription:
-        "La joaillerie Liome est une entreprise du secteur du luxe qui vend des bijoux pour homme en matériaux précieux. La marque utilise des technologies de pointe pour concevoir et fabriquer ses bijoux, afin de garantir la plus haute qualité et la plus grande précision possible. Les bijoux Liome sont également éthiques et respectueux de l'environnement, car ils sont fabriqués à partir de matériaux recyclés et recyclables.",
+        "La joaillerie Liome est une entreprise du secteur du luxe qui vend des bijoux pour homme en matériaux précieux. La marque utilise des technologies de pointe pour concevoir et fabriquer ses bijoux, afin de garantir la plus haute qualité et la plus grande précision possible. Les bijoux Liome sont également éthiques et respectueux de l'environnement car ils sont fabriqués à partir de matériaux recyclés et recyclables.",
       theGoal:
         "Concevoir une boutique en ligne et un CMS pour permettre aux clients de découvrir et d'acheter les bijoux de la marque",
       theGoalDescription:
