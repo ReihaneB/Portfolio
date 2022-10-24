@@ -8,3 +8,17 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+body {
+  background: radial-gradient(
+      at 37% 25%,
+      rgb(239, 245, 255) 0px,
+      transparent 50%
+    ),
+    radial-gradient(at 80% 0%, rgb(255, 245, 239) 0px, transparent 50%),
+    radial-gradient(at 0% 50%, rgb(242, 252, 255) 0px, transparent 50%),
+    radial-gradient(at 76% 50%, rgb(255, 239, 252) 0px, transparent 50%),
+    radial-gradient(at 0% 100%, rgb(239, 244, 255) 0px, transparent 50%),
+    radial-gradient(at 64% 86%, rgb(250, 255, 241) 0px, transparent 50%),
+    radial-gradient(at 0% 0%, rgb(255, 240, 240) 0px, transparent 50%);
+}
