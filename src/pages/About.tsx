@@ -97,33 +97,6 @@ export default function About(): JSX.Element {
           </div>
         </div>
         <div className="">
-          {/* <div className="bg-cyan-100 rounded-xl p-8 mt-16">
-              <div className="flex justify-center">
-                <div className="bg-white  rounded-full w-fit px-4 py-3 flex items-center justify-center">
-                  <h2 className="text-center">3 choses à mon sujet</h2>
-                </div>
-              </div>
-              <div className="flex justify-center space-x-8 mt-16">
-                <div className="w-20 h-20 rounded-full bg-white flex justify-center items-center">
-                  <FontAwesomeIcon icon={faRing} className="w-8" />
-                </div>
-                <div className="w-20 h-20 rounded-full bg-white flex justify-center items-center"></div>
-                <div className="w-20 h-20 rounded-full bg-white flex justify-center items-center"></div>
-              </div>
-              <div className="flex justify-center items-center">
-                <div className="w-56 h-56 rounded-xl bg-white my-16"></div>
-              </div>
-              <div>
-                <h3 className="mt-4">Passionné de joaillerie</h3>
-                <p className="mt-4">
-                  Je passe mon temps libre à concevoir de nouveaux joyaux. J'aime
-                  utiliser des gemmes et métaux précieux pour créer des bijoux
-                  uniques. Je prends beaucoup de plaisir à travailler sur de
-                  nouveaux projets et à voir les pièces se transformer sous mes
-                  yeux.
-                </p>
-              </div>
-            </div> */}
           <div className="flex flex-nowrap justify-center items-center my-32">
             <hr className=" border-gray-400 mr-4 w-1/2" />
             <span className="text-gray-400 whitespace-nowrap">
