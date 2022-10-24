@@ -35,7 +35,7 @@ export default function Project(): JSX.Element {
       : null;
 
   return (
-    <div>
+    <div className="mt-12 lg:flex lg:justify-center mb-36">
       <div className="mx-8 lg:mx-16 lg:w-[1024px]">
         <div className="flex justify-center ">
           <NavLink to={isLabActive ? "/lab" : "/work"}>
