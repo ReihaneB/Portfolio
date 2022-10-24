@@ -109,6 +109,34 @@ export default function Home(): JSX.Element {
               </div>
             </div>
           </div>
+          <div className="text-center mt-32">
+            {id === "lab" ? (
+              <>
+                <h2 className="text-3xl font-bold text-left lg:text-center">
+                  Lab
+                </h2>
+                <div className="flex justify-center">
+                  <p className="mt-4 text-left lg:text-center lg:w-[650px]">
+                    Vous retrouverez ici mes side-projects, expériences et
+                    outils que j'ai développé sur mon temps libre et qui ne sont
+                    pas encore assez matures pour être intégrées dans mes
+                    projets.
+                  </p>
+                </div>
+              </>
+            ) : (
+              <>
+                <h2 className="text-3xl font-bold text-left lg:text-center">
+                  Work
+                </h2>
+                <p className="mt-4 text-left lg:text-center">
+                  Vous retrouverez ici mes projets professionnels, réalisés pour
+                  des clients ou des employeurs.
+                </p>
+              </>
+            )}
+          </div>
+
           <div className="mt-32">
             {project.map((project: any, index: number) => (
               <NavLink to={`/project/${project.url}`} key={index}>
