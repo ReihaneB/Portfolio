@@ -77,7 +77,7 @@ export default function Home(): JSX.Element {
             <img
               src={profilePicture}
               alt="Profile picture of Reihane B."
-              className="rounded-xl w-full "
+              className="rounded-xl w-full shadow-[0_0_5px_rgba(0,0,0,0.1)]"
             />
           </NavLink>
           <div className="lg:w-1/2 lg:flex lg:flex-wrap lg:items-center">
@@ -172,7 +172,7 @@ export default function Home(): JSX.Element {
                 <img
                   src={project.firstImage}
                   alt={project.firstImageAlt}
-                  className="mt-6 w-full rounded-xl"
+                  className="mt-6 w-full rounded-xl shadow-[0_0_5px_rgba(0,0,0,0.1)]"
                 />
               </div>
             </NavLink>

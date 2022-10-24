@@ -51,7 +51,7 @@ export default function About(): JSX.Element {
             <img
               src={profilePicture}
               alt="Profile picture of Reihane B."
-              className="rounded-xl w-full "
+              className="rounded-xl w-full shadow-[0_0_5px_rgba(0,0,0,0.1)]"
             />
           </div>
           <div className="lg:w-1/2 lg:flex lg:items-center">
@@ -166,7 +166,7 @@ export default function About(): JSX.Element {
                 (item: any, index: number) => (
                   <div
                     key={index}
-                    className=" bg-blue-100  lg:w-[370px] rounded-xl p-8 mt-16 lg:mx-8 lg:flex lg:flex-wrap lg:place-content-between"
+                    className=" bg-blue-100  lg:w-[370px] rounded-xl p-8 mt-16 lg:mx-8 lg:flex lg:flex-wrap lg:place-content-between "
                   >
                     <div>
                       <Lottie
@@ -238,7 +238,7 @@ export default function About(): JSX.Element {
             <img
               src={work[0].firstImage}
               alt="Quarry"
-              className="mt-6 w-full rounded-xl"
+              className="mt-6 w-full rounded-xl shadow-[0_0_5px_rgba(0,0,0,0.1)]"
             />
           </NavLink>
           <Footer />

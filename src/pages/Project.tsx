@@ -73,7 +73,7 @@ export default function Project(): JSX.Element {
               <img
                 src={project.firstImage}
                 alt={project.firstImageAlt}
-                className="mt-6 w-full rounded-xl"
+                className="mt-6 w-full rounded-xl shadow-[0_0_5px_rgba(0,0,0,0.1)]"
               />
             </div>
             <div className="mt-6 flex justify-center lg:hidden">
@@ -107,7 +107,7 @@ export default function Project(): JSX.Element {
                 <img
                   src={project.secondImage}
                   alt={project.secondImageAlt}
-                  className="mt-6 w-full rounded-xl"
+                  className="mt-6 w-full rounded-xl shadow-[0_0_5px_rgba(0,0,0,0.1)]"
                 />
               </div>
             </div>
@@ -152,7 +152,7 @@ export default function Project(): JSX.Element {
                     <img
                       src={item.img}
                       alt={item.alt}
-                      className="mt-6 w-full rounded-xl"
+                      className="mt-6 w-full rounded-xl shadow-[0_0_5px_rgba(0,0,0,0.1)]"
                     />
                   </div>
                 ))}
@@ -277,7 +277,7 @@ export default function Project(): JSX.Element {
                           <img
                             src={project.firstImage}
                             alt={project.firstImageAlt}
-                            className="mt-6 w-full rounded-xl"
+                            className="mt-6 w-full rounded-xl shadow-[0_0_5px_rgba(0,0,0,0.1)]"
                           />
                         </div>
                       </div>
