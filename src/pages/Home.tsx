@@ -13,6 +13,7 @@ import { faLocationArrow } from "@fortawesome/free-solid-svg-icons";
 import typescript from "../assets/icon/typescript.svg";
 import firebase from "../assets/icon/firebase.svg";
 import react from "../assets/icon/react.svg";
+import { motion } from "framer-motion";
 
 export default function Home(): JSX.Element {
   const { id } = useParams();
@@ -39,9 +40,13 @@ export default function Home(): JSX.Element {
           </div>
           <div className="hidden lg:flex lg:items-center">
             <NavLink to="/about">
-              <button className="bg-blue-500 text-blue-100 rounded-full px-4 py-3">
+              <motion.button
+                whileHover={{ scale: 0.9 }}
+                exit={{ opacity: 0 }}
+                className="bg-blue-500 text-blue-100 rounded-full px-4 py-3"
+              >
                 Voir mon profil
-              </button>
+              </motion.button>
             </NavLink>
           </div>
         </header>
