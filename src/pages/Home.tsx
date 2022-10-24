@@ -106,6 +106,13 @@ export default function Home(): JSX.Element {
                     personne et de leur offrir une expérience inédite.
                   </p>
                 </div>
+                <div className="mt-8 flex justify-center">
+                  <NavLink to="/about">
+                    <button className="bg-blue-500 text-blue-100 rounded-full px-4 py-3">
+                      Voir mon profil
+                    </button>
+                  </NavLink>
+                </div>
               </div>
             </div>
           </div>
@@ -168,7 +175,7 @@ export default function Home(): JSX.Element {
             ))}
           </div>
           <hr className="my-36 border-gray-400 lg:hidden" />
-          <div className="sticky bottom-10 flex justify-center lg:hidden">
+          <div className="sticky bottom-8 flex justify-center lg:hidden">
             <WorkOrLab />
           </div>
           <div className="">
