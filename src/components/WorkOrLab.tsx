@@ -3,7 +3,10 @@ import { NavLink, useParams } from "react-router-dom";
 
 export default function WorkOrLab() {
   const { id } = useParams();
-  const [isToggle, setIsToggle] = useState<boolean>(false);
+
+  const [isToggle, setIsToggle] = useState<boolean>(
+    id === "lab" ? true : false
+  );
 
   useEffect(() => {
     if (id === "work") {
