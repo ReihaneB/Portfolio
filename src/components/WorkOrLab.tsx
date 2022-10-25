@@ -19,8 +19,8 @@ export default function WorkOrLab() {
 
   return (
     <div className="w-64 sm:w-96">
-      <nav className="bg-gray-700 rounded-full flex justify-center items-center z-10">
-        <ul className="bg-gray-500 w-full flex flex-nowrap relative rounded-full m-4 lg:m-4">
+      <div className="bg-gray-700 rounded-full flex justify-center items-center z-10">
+        <div className="bg-gray-500 w-full flex flex-nowrap relative rounded-full m-4 lg:m-4">
           <NavLink to="/work">
             <input
               className="hidden"
@@ -62,8 +62,8 @@ export default function WorkOrLab() {
               isToggle ? `left-1/2` : `left-0`
             }`}
           ></div>
-        </ul>
-      </nav>
+        </div>
+      </div>
     </div>
   );
 }

@@ -42,34 +42,36 @@ export default function Footer(): JSX.Element {
       <div className="mb-4">
         <p className="text-center text-gray-300">Designé et développé par</p>
         <NavLink to="/work">
-          <motion.div
+          <motion.h1
+            onClick={() => window.scrollTo(0, 0)}
             whileHover={{ scale: 0.95 }}
             transition={transition}
-            className="text-center text-3xl"
+            className="text-center text-3xl cursor-pointer"
           >
             reihane b.
-          </motion.div>
+          </motion.h1>
         </NavLink>
       </div>
 
-      <p className="flex flex-wrap justify-center items-center ">
+      <ul className="flex flex-wrap justify-center items-center ">
         {social.map((item: any) =>
           Object.values(item).map((item: any, index: number) => (
-            <motion.a
-              whileHover={{ scale: 0.95 }}
-              transition={transition}
-              key={index}
-              href={item.link}
-              target="_blank"
-              rel="noreferrer"
-              className="text-blue-500 bg-blue-100 rounded-full px-4 mt-4 py-2 mr-2 flex flex-nowrap"
-            >
-              <img src={item.img} alt="React logo" className="w-4 mr-2" />
-              {item.intitule}
-            </motion.a>
+            <li key={index}>
+              <motion.a
+                whileHover={{ scale: 0.95 }}
+                transition={transition}
+                href={item.link}
+                target="_blank"
+                rel="noreferrer"
+                className="text-blue-500 bg-blue-100 rounded-full px-4 mt-4 py-2 mr-2 flex flex-nowrap"
+              >
+                <img src={item.img} alt="React logo" className="w-4 mr-2" />
+                {item.intitule}
+              </motion.a>
+            </li>
           ))
         )}
-      </p>
+      </ul>
     </footer>
   );
 }

@@ -10,9 +10,9 @@ export default function Logo(): JSX.Element {
         whileHover={{ scale: 0.95 }}
         transition={{ duration: 0.05, ease: [0.6, 0.01, -0.05, 0.9] }}
         onClick={() => setIsOpen(!isOpen)}
-        className="text-3xl h-20 w-20 border-solid border-2 border-[#89db84] rounded-full flex justify-center items-center duration-500"
+        className="h-20 w-20 border-solid border-2 border-[#89db84] rounded-full flex justify-center items-center duration-500"
       >
-        rb.
+        <h1>rb.</h1>
       </motion.button>
       <AnimatePresence mode="wait">
         {isOpen && (

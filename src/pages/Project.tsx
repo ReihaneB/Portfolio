@@ -6,6 +6,7 @@ import WorkData from "../database/WorkData";
 import Footer from "../components/Footer";
 import LabData from "../database/LabData";
 import { motion } from "framer-motion";
+import { Helmet } from "react-helmet";
 
 const transition = { duration: 0.5, ease: [0.6, 0.01, -0.05, 0.9] };
 
@@ -40,30 +41,64 @@ export default function Project(): JSX.Element {
   return (
     <div className="mt-12 lg:flex lg:justify-center mb-36">
       <div className="mx-8 lg:mx-16 lg:w-[1024px]">
-        <div className="flex justify-center ">
-          <NavLink to={isLabActive ? "/lab" : "/work"}>
-            <Logo />
-          </NavLink>
-        </div>
+        <header>
+          <nav className="flex justify-center ">
+            <NavLink to={isLabActive ? "/lab" : "/work"}>
+              <Logo />
+            </NavLink>
+          </nav>
+        </header>
 
-        {projects.map((project: any, index: number) => (
-          <div key={index}>
-            <div className="mt-8 lg:mt-28">
-              <h2 className="">{project.projectName}</h2>
-              <p className="">{project.jobTitle}</p>
-              <div className="flex place-content-between">
-                <div className="flex flex-wrap ">
-                  {project.stackSummary.map((stack: any, index: any) => (
-                    <p
-                      key={index}
-                      className="mt-4 bg-gray-200 px-6 py-2 rounded-xl w-fit mr-4"
-                    >
-                      {stack}
-                    </p>
-                  ))}
-                </div>
-                {project.externalLink ? (
+        <main>
+          {projects.map((project: any, index: number) => (
+            <article key={index}>
+              <Helmet>
+                <title>
+                  {project.projectName} - {project.jobTitle} · Reihane B.
+                </title>
+                <meta name="description" content={project.description} />
+                <meta property="og:image" content={project.firstImage} />
+              </Helmet>
+              <header className="mt-8 lg:mt-28">
+                <h2 className="">{project.projectName}</h2>
+                <p className="">{project.jobTitle}</p>
+                <div className="flex place-content-between">
+                  <ul className="flex flex-wrap ">
+                    {project.stackSummary.map((stack: any, index: any) => (
+                      <li
+                        key={index}
+                        className="mt-4 bg-gray-200 px-6 py-2 rounded-xl w-fit mr-4"
+                      >
+                        {stack}
+                      </li>
+                    ))}
+                  </ul>
                   <div className="hidden lg:flex lg:justify-end lg:items-end">
+                    {project.externalLink ? (
+                      <motion.a
+                        whileHover={{ scale: 0.95 }}
+                        transition={transition}
+                        href={project.externalLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-8  bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full  py-3 text-white"
+                      >
+                        {project.buttonTextExternalLink}
+                      </motion.a>
+                    ) : (
+                      <div className="border-blue-200 px-8 cursor-not-allowed text-transparent border-2 bg-clip-text bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full py-3 ">
+                        {project.buttonTextExternalLink}
+                      </div>
+                    )}
+                  </div>
+                </div>
+                <img
+                  src={project.firstImage}
+                  alt={project.firstImageAlt}
+                  className="mt-6 w-full rounded-xl shadow-[0_0_5px_rgba(0,0,0,0.1)]"
+                />
+                <div className="mt-6 flex justify-center lg:hidden">
+                  {project.externalLink ? (
                     <motion.a
                       whileHover={{ scale: 0.95 }}
                       transition={transition}
@@ -74,233 +109,250 @@ export default function Project(): JSX.Element {
                     >
                       {project.buttonTextExternalLink}
                     </motion.a>
-                  </div>
-                ) : (
-                  <div className="hidden lg:flex lg:justify-end lg:items-end">
+                  ) : (
                     <div className="border-blue-200 px-8 cursor-not-allowed text-transparent border-2 bg-clip-text bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full py-3 ">
                       {project.buttonTextExternalLink}
                     </div>
-                  </div>
-                )}
-              </div>
-              <img
-                src={project.firstImage}
-                alt={project.firstImageAlt}
-                className="mt-6 w-full rounded-xl shadow-[0_0_5px_rgba(0,0,0,0.1)]"
-              />
-            </div>
-            <div className="mt-6 flex justify-center lg:hidden">
-              <a
-                href={project.externalLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-8 text-center py-3 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full  text-white"
-              >
-                {project.buttonTextExternalLink}
-              </a>
-            </div>
-            <div className="lg:grid lg:grid-cols-[350px_1fr]">
-              <div className="">
-                <h2 className="mt-12">Contexte</h2>
-                <p className="mt-4">{project.projectDescription}</p>
-                <div className="bg-cyan-100 rounded-xl p-8 mt-16">
-                  <div className="flex justify-center">
-                    <div className="bg-white  rounded-full w-fit px-4 py-3 flex items-center justify-center">
-                      <h2>
-                        <FontAwesomeIcon icon={faCrosshairs} className="mr-2" />
-                        L'objectif
-                      </h2>
-                    </div>
-                  </div>
-                  <h3 className="mt-4">{project.theGoal}</h3>
-                  <p className="mt-4">{project.theGoalDescription}</p>
+                  )}
                 </div>
-              </div>
-              <div className="hidden lg:ml-8 lg:flex lg:items-center">
-                <img
-                  src={project.secondImage}
-                  alt={project.secondImageAlt}
-                  className="mt-6 w-full rounded-xl shadow-[0_0_5px_rgba(0,0,0,0.1)]"
-                />
-              </div>
-            </div>
-
-            <div className="flex flex-nowrap justify-center items-center my-32">
-              <hr className=" border-gray-400 mr-4 w-1/2" />
-              <span className="text-gray-400">Stack</span>
-              <hr className=" border-gray-400 ml-4 w-1/2" />
-            </div>
-            {Object.values(project.stack).map((stack: any, index: number) => (
-              <div key={index}>
-                <h2 className="mt-16">{Object.keys(project.stack)[index]}</h2>
-                <div className="lg:flex lg:flex-wrap">
-                  {Object.values(stack).map((item: any, index: number) => (
-                    <div key={index} className="lg:mr-16 mt-8">
-                      <h3>{Object.keys(stack)[index]} </h3>
-                      <div className="flex flex-wrap">
-                        {Object.values(item).map((item: any, index: number) => (
-                          <div key={index}>
-                            <p className="mt-4 bg-gray-200 px-6 py-2 rounded-xl w-fit mr-4 flex">
-                              <img src={item.img} className="mr-3 h-5 w-5" />
-                              {item.intitule}
-                            </p>
-                          </div>
-                        ))}
+              </header>
+              <main>
+                <section className="lg:grid lg:grid-cols-[350px_1fr]">
+                  <div>
+                    <h2 className="mt-12">Contexte</h2>
+                    <p className="mt-4">{project.projectDescription}</p>
+                    <div className="bg-cyan-100 rounded-xl p-8 mt-16">
+                      <div className="flex justify-center">
+                        <div className="bg-white  rounded-full w-fit px-4 py-3 flex items-center justify-center">
+                          <h2>
+                            <FontAwesomeIcon
+                              icon={faCrosshairs}
+                              className="mr-2"
+                            />
+                            L'objectif
+                          </h2>
+                        </div>
                       </div>
+                      <h3 className="mt-4">{project.theGoal}</h3>
+                      <p className="mt-4">{project.theGoalDescription}</p>
                     </div>
-                  ))}
-                </div>
-              </div>
-            ))}
-            <div className="flex flex-nowrap justify-center items-center my-32">
-              <hr className=" border-gray-400 mr-4 w-1/2" />
-              <span className="text-gray-400">Wireframes</span>
-              <hr className=" border-gray-400 ml-4 w-1/2" />
-            </div>
-            {Object.values(project.images).map((image: any, index: number) => (
-              <div key={index}>
-                <h2 className="mt-16">{Object.keys(project.images)[index]}</h2>
-                {Object.values(image).map((item: any, index: number) => (
-                  <div key={index}>
+                  </div>
+                  <div className="hidden lg:ml-8 lg:flex lg:items-center">
                     <img
-                      src={item.img}
-                      alt={item.alt}
+                      src={project.secondImage}
+                      alt={project.secondImageAlt}
                       className="mt-6 w-full rounded-xl shadow-[0_0_5px_rgba(0,0,0,0.1)]"
                     />
                   </div>
-                ))}
-              </div>
-            ))}
-            <div className="flex flex-nowrap justify-center items-center my-32">
-              <hr className=" border-gray-400 mr-4 w-1/2" />
-              <span className="text-gray-400">Informations</span>
-              <hr className=" border-gray-400 ml-4 w-1/2" />
-            </div>
-            {project.additionalinformations.delivreables && (
-              <h2 className="mt-16">Livrables</h2>
-            )}
-            {project.additionalinformations.delivreables &&
-              project.additionalinformations.delivreables.map(
-                (item: any, index: number) => (
-                  <div key={index}>
-                    <p className="mt-4">{item}</p>
+                </section>
+                <section>
+                  <div className="flex flex-nowrap justify-center items-center my-32">
+                    <hr className=" border-gray-400 mr-4 w-1/2" />
+                    <span className="text-gray-400">Stack</span>
+                    <hr className=" border-gray-400 ml-4 w-1/2" />
                   </div>
-                )
-              )}
-
-            {project.additionalinformations.projectInformations && (
-              <h2 className="mt-16">Informations sur le projet</h2>
-            )}
-            <div className="flex flex-wrap">
-              {project.additionalinformations.projectInformations.client && (
-                <div className="mt-4  mr-16">
-                  <h4 className="">Client</h4>
-                  <p className="mt-4">
-                    {project.additionalinformations.projectInformations.client}
-                  </p>
-                </div>
-              )}
-              {project.additionalinformations.projectInformations
-                .clientwebsite && (
-                <div className="mt-4  mr-16">
-                  <h4 className="">Site</h4>
-                  <p className="mt-4">
-                    <a
-                      href={
-                        project.additionalinformations.projectInformations
-                          .clientwebsite
-                      }
-                    >
-                      {project.additionalinformations.projectInformations.clientwebsite.replace(
-                        "https://www.",
-                        ""
-                      )}
-                    </a>
-                  </p>
-                </div>
-              )}
-              {project.additionalinformations.projectInformations
-                .projectduration && (
-                <div className="mt-4 ">
-                  <h4 className="">Durée</h4>
-                  <p className="mt-4">
-                    {
-                      project.additionalinformations.projectInformations
-                        .projectduration
-                    }
-                  </p>
-                </div>
-              )}
-            </div>
-
-            {project.additionalinformations.projectInformations.credits && (
-              <h2 className="mt-16">Crédits</h2>
-            )}
-            <div className="flex flex-wrap">
-              {Object.values(
-                project.additionalinformations.projectInformations.credits
-              ).map((item: any, index: number) => (
-                <div key={index} className="mr-16">
-                  <h4 className="mr-4 mt-4">
-                    {
-                      Object.keys(
-                        project.additionalinformations.projectInformations
-                          .credits
-                      )[index]
-                    }
-                  </h4>
-                  <div className="mt-4">
-                    {Object.values(item).map((item: any, index: number) => (
-                      <div key={index} className="">
-                        <a href={item.link}>{item.name}</a>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
-            {nextproject
-              ? nextproject
-                  .filter((work: any) => work.id === nextWorkProjectID)
-                  .map((project: any, index: number) => (
-                    <NavLink to={`/project/${project.url}`} key={index}>
-                      <div className="flex flex-nowrap justify-center items-center my-32">
-                        <hr className=" border-gray-400 mr-4 w-1/2" />
-                        <span className="text-gray-400 whitespace-nowrap ">
-                          Projet suivant
-                        </span>
-                        <hr className=" border-gray-400 ml-4 w-1/2" />
-                      </div>
-                      <div>
-                        <div className="mt-32">
-                          <h2 className="">{project.projectName}</h2>
-                          <p className="">{project.jobTitle}</p>
-                          <div className="flex flex-wrap">
-                            {project.stackSummary.map(
-                              (stack: any, index: any) => (
-                                <p
-                                  key={index}
-                                  className="mt-4 bg-gray-200 px-6 py-2 rounded-xl w-fit mr-4"
-                                >
-                                  {stack}
-                                </p>
-                              )
-                            )}
-                          </div>
-                          <motion.img
-                            whileHover={{ scale: 0.98 }}
-                            transition={transition}
-                            src={project.firstImage}
-                            alt={project.firstImageAlt}
-                            className="mt-6 w-full rounded-xl shadow-[0_0_5px_rgba(0,0,0,0.1)]"
-                          />
+                  {Object.values(project.stack).map(
+                    (stack: any, index: number) => (
+                      <div key={index}>
+                        <h2 className="mt-16">
+                          {Object.keys(project.stack)[index]}
+                        </h2>
+                        <div className="lg:flex lg:flex-wrap">
+                          {Object.values(stack).map(
+                            (item: any, index: number) => (
+                              <div key={index} className="lg:mr-16 mt-8">
+                                <h3>{Object.keys(stack)[index]} </h3>
+                                <ul className="flex flex-wrap">
+                                  {Object.values(item).map(
+                                    (item: any, index: number) => (
+                                      <li
+                                        key={index}
+                                        className="mt-4 bg-gray-200 px-6 py-2 rounded-xl w-fit mr-4 flex items-center"
+                                      >
+                                        <img
+                                          alt={item.alt}
+                                          src={item.img}
+                                          className="mr-3 h-5 w-5"
+                                        />
+                                        {item.intitule}
+                                      </li>
+                                    )
+                                  )}
+                                </ul>
+                              </div>
+                            )
+                          )}
                         </div>
                       </div>
-                    </NavLink>
-                  ))
-              : null}
-          </div>
-        ))}
+                    )
+                  )}
+                </section>
+                <section>
+                  <div className="flex flex-nowrap justify-center items-center my-32">
+                    <hr className=" border-gray-400 mr-4 w-1/2" />
+                    <span className="text-gray-400">Wireframes</span>
+                    <hr className=" border-gray-400 ml-4 w-1/2" />
+                  </div>
+                  {Object.values(project.images).map(
+                    (image: any, index: number) => (
+                      <div key={index}>
+                        <h2 className="mt-16">
+                          {Object.keys(project.images)[index]}
+                        </h2>
+                        {Object.values(image).map(
+                          (item: any, index: number) => (
+                            <img
+                              key={index}
+                              src={item.img}
+                              alt={item.alt}
+                              className="mt-6 w-full rounded-xl shadow-[0_0_5px_rgba(0,0,0,0.1)]"
+                            />
+                          )
+                        )}
+                      </div>
+                    )
+                  )}
+                </section>
+                <section>
+                  <div className="flex flex-nowrap justify-center items-center my-32">
+                    <hr className=" border-gray-400 mr-4 w-1/2" />
+                    <span className="text-gray-400">Informations</span>
+                    <hr className=" border-gray-400 ml-4 w-1/2" />
+                  </div>
+                  {project.additionalinformations.delivreables && (
+                    <h2 className="mt-16">Livrables</h2>
+                  )}
+                  {project.additionalinformations.delivreables && (
+                    <ul>
+                      {project.additionalinformations.delivreables.map(
+                        (item: any, index: number) => (
+                          <li key={index} className="mt-4">
+                            {item}
+                          </li>
+                        )
+                      )}
+                    </ul>
+                  )}
+                  {project.additionalinformations.projectInformations && (
+                    <h2 className="mt-16">Informations sur le projet</h2>
+                  )}
+                  <div className="flex flex-wrap">
+                    {project.additionalinformations.projectInformations
+                      .client && (
+                      <div className="mt-4  mr-16">
+                        <h4 className="">Client</h4>
+                        <p className="mt-4">
+                          {
+                            project.additionalinformations.projectInformations
+                              .client
+                          }
+                        </p>
+                      </div>
+                    )}
+                    {project.additionalinformations.projectInformations
+                      .clientwebsite && (
+                      <div className="mt-4  mr-16">
+                        <h4 className="">Site</h4>
+                        <p className="mt-4">
+                          <a
+                            href={
+                              project.additionalinformations.projectInformations
+                                .clientwebsite
+                            }
+                          >
+                            {project.additionalinformations.projectInformations.clientwebsite.replace(
+                              "https://www.",
+                              ""
+                            )}
+                          </a>
+                        </p>
+                      </div>
+                    )}
+                    {project.additionalinformations.projectInformations
+                      .projectduration && (
+                      <div className="mt-4 ">
+                        <h4 className="">Durée</h4>
+                        <p className="mt-4">
+                          {
+                            project.additionalinformations.projectInformations
+                              .projectduration
+                          }
+                        </p>
+                      </div>
+                    )}
+                  </div>
+                  {project.additionalinformations.projectInformations
+                    .credits && <h2 className="mt-16">Crédits</h2>}
+                  <ul className="flex flex-wrap">
+                    {Object.values(
+                      project.additionalinformations.projectInformations.credits
+                    ).map((item: any, index: number) => (
+                      <li key={index} className="mr-16">
+                        <h4 className="mr-4 mt-4">
+                          {
+                            Object.keys(
+                              project.additionalinformations.projectInformations
+                                .credits
+                            )[index]
+                          }
+                        </h4>
+                        <div className="mt-4">
+                          {Object.values(item).map(
+                            (item: any, index: number) => (
+                              <div key={index} className="">
+                                <a href={item.link}>{item.name}</a>
+                              </div>
+                            )
+                          )}
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
+                </section>
+                {nextproject
+                  ? nextproject
+                      .filter((work: any) => work.id === nextWorkProjectID)
+                      .map((project: any, index: number) => (
+                        <NavLink to={`/project/${project.url}`} key={index}>
+                          <div className="flex flex-nowrap justify-center items-center my-32">
+                            <hr className=" border-gray-400 mr-4 w-1/2" />
+                            <span className="text-gray-400 whitespace-nowrap ">
+                              Projet suivant
+                            </span>
+                            <hr className=" border-gray-400 ml-4 w-1/2" />
+                          </div>
+                          <div>
+                            <div className="mt-32">
+                              <h2 className="">{project.projectName}</h2>
+                              <p className="">{project.jobTitle}</p>
+                              <ul className="flex flex-wrap">
+                                {project.stackSummary.map(
+                                  (stack: any, index: any) => (
+                                    <li
+                                      key={index}
+                                      className="mt-4 bg-gray-200 px-6 py-2 rounded-xl w-fit mr-4"
+                                    >
+                                      {stack}
+                                    </li>
+                                  )
+                                )}
+                              </ul>
+                              <motion.img
+                                whileHover={{ scale: 0.98 }}
+                                transition={transition}
+                                src={project.firstImage}
+                                alt={project.firstImageAlt}
+                                className="mt-6 w-full rounded-xl shadow-[0_0_5px_rgba(0,0,0,0.1)]"
+                              />
+                            </div>
+                          </div>
+                        </NavLink>
+                      ))
+                  : null}
+              </main>
+            </article>
+          ))}
+        </main>
         <Footer />
       </div>
     </div>
