@@ -40,15 +40,11 @@ export default function Project(): JSX.Element {
   return (
     <div className="mt-12 lg:flex lg:justify-center mb-36">
       <div className="mx-8 lg:mx-16 lg:w-[1024px]">
-        <motion.div
-          whileHover={{ scale: 0.95 }}
-          transition={transition}
-          className="flex justify-center "
-        >
+        <div className="flex justify-center ">
           <NavLink to={isLabActive ? "/lab" : "/work"}>
             <Logo />
           </NavLink>
-        </motion.div>
+        </div>
 
         {projects.map((project: any, index: number) => (
           <div key={index}>

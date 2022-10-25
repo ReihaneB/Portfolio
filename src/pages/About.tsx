@@ -23,14 +23,12 @@ export default function About(): JSX.Element {
     <div>
       <div className="mt-12 lg:flex lg:justify-center mb-36">
         <div className="mx-8 lg:mx-16 lg:w-[1024px]">
-          <motion.div
-            whileHover={{ scale: 0.95 }}
-            transition={transition}
+          <div
             onClick={() => navigate(-1)}
             className="flex justify-center cursor-pointer"
           >
             <Logo />
-          </motion.div>
+          </div>
           <div className="lg:flex lg:place-content-between mt-8 lg:mt-28">
             <div>
               <h2>Reihane B.</h2>
