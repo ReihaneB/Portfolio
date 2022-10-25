@@ -39,10 +39,18 @@ export default function Footer(): JSX.Element {
       <div className="flex flex-nowrap justify-center items-center my-32">
         <hr className=" border-gray-400 mr-4 w-full" />
       </div>
-      <p className="text-center text-gray-300">Designé et développé par</p>
-      <NavLink to="/work">
-        <h1 className="text-center mb-4">reihane b.</h1>
-      </NavLink>
+      <div className="mb-4">
+        <p className="text-center text-gray-300">Designé et développé par</p>
+        <NavLink to="/work">
+          <motion.div
+            whileHover={{ scale: 0.95 }}
+            transition={transition}
+            className="text-center text-3xl"
+          >
+            reihane b.
+          </motion.div>
+        </NavLink>
+      </div>
 
       <p className="flex flex-wrap justify-center items-center ">
         {social.map((item: any) =>
