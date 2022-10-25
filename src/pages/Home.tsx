@@ -13,7 +13,9 @@ import { faLocationArrow } from "@fortawesome/free-solid-svg-icons";
 import typescript from "../assets/icon/typescript.svg";
 import firebase from "../assets/icon/firebase.svg";
 import react from "../assets/icon/react.svg";
-import { motion } from "framer-motion";
+import { AnimatePresence, LayoutGroup, motion } from "framer-motion";
+
+const transition = { duration: 0.3, ease: [0.6, 0.01, -0.05, 0.9] };
 
 export default function Home(): JSX.Element {
   const { id } = useParams();
@@ -26,7 +28,7 @@ export default function Home(): JSX.Element {
   const [isContactFormOpen, setIsContactFormOpen] = useState<boolean>(false);
 
   return (
-    <>
+    <div>
       {isContactFormOpen && (
         <ContactForm close={() => setIsContactFormOpen(!isContactFormOpen)} />
       )}
@@ -42,8 +44,8 @@ export default function Home(): JSX.Element {
             <div className="hidden lg:flex lg:items-center">
               <NavLink to="/about">
                 <motion.button
-                  whileHover={{ scale: 0.9 }}
-                  exit={{ opacity: 0 }}
+                  whileHover={{ scale: 0.95 }}
+                  transition={transition}
                   className="bg-blue-500 text-blue-100 rounded-full px-4 py-3"
                 >
                   Voir mon profil
@@ -52,35 +54,49 @@ export default function Home(): JSX.Element {
             </div>
           </header>
 
-          <div className="mt-8 lg:mt-28 text-center">
-            <h3 className="text-xl lg:text-2xl font-light">Reihane B.</h3>
-            <h1 className="text-5xl font-bold mt-4">Développeur front-end</h1>
-            <h3 className=" text-blue-500 font-light mt-8">
-              <FontAwesomeIcon icon={faLocationArrow} className="mr-4" />
-              Basé à Paris, FR
-            </h3>
-            <div className="flex justify-center space-x-8 mt-8 lg:mt-16">
-              <img
-                src={typescript}
-                alt="Typescript logo"
-                className="h-8 lg:h-12"
-              />
-              <img src={react} alt="Typescript logo" className="h-8 lg:h-12" />
-              <img src={firebase} alt="Firebase logo" className="h-8 lg:h-12" />
+          <div>
+            <div className="mt-8 lg:mt-28 text-center">
+              <h3 className="text-xl lg:text-2xl font-light">Reihane B.</h3>
+              <h1 className="text-5xl font-bold mt-4">Développeur front-end</h1>
+              <h3 className=" text-blue-500 font-light mt-8">
+                <FontAwesomeIcon icon={faLocationArrow} className="mr-4" />
+                Basé à Paris, FR
+              </h3>
+              <div className="flex justify-center space-x-8 mt-8 lg:mt-16">
+                <img
+                  src={typescript}
+                  alt="Typescript logo"
+                  className="h-8 lg:h-12"
+                />
+                <img
+                  src={react}
+                  alt="Typescript logo"
+                  className="h-8 lg:h-12"
+                />
+                <img
+                  src={firebase}
+                  alt="Firebase logo"
+                  className="h-8 lg:h-12"
+                />
+              </div>
             </div>
-          </div>
-          <div className="mt-6 flex justify-center">
-            <button
-              onClick={() => setIsContactFormOpen(!isContactFormOpen)}
-              className="w-96 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full  py-3 text-white"
-            >
-              Démarrer un projet
-            </button>
+            <div className="mt-6 flex justify-center">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                transition={transition}
+                onClick={() => setIsContactFormOpen(!isContactFormOpen)}
+                className="w-96 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full  py-3 text-white"
+              >
+                Démarrer un projet
+              </motion.button>
+            </div>
           </div>
 
           <div className="lg:flex lg:space-x-8 mt-36">
             <NavLink to="/about" className="lg:w-1/2">
-              <img
+              <motion.img
+                whileHover={{ scale: 0.98 }}
+                transition={transition}
                 src={profilePicture}
                 alt="Profile picture of Reihane B."
                 className="rounded-xl w-full shadow-[0_0_5px_rgba(0,0,0,0.1)]"
@@ -91,7 +107,9 @@ export default function Home(): JSX.Element {
                 <p className="flex flex-wrap justify-center items-center ">
                   {social.map((item: any) =>
                     Object.values(item).map((item: any, index: number) => (
-                      <a
+                      <motion.a
+                        whileHover={{ scale: 0.95 }}
+                        transition={transition}
                         key={index}
                         href={item.link}
                         target="_blank"
@@ -104,7 +122,7 @@ export default function Home(): JSX.Element {
                           className="w-4 mr-2"
                         />
                         {item.intitule}
-                      </a>
+                      </motion.a>
                     ))
                   )}
                 </p>
@@ -119,9 +137,13 @@ export default function Home(): JSX.Element {
                 </div>
                 <div className="mt-8 flex justify-center lg:hidden">
                   <NavLink to="/about">
-                    <button className="bg-blue-500 text-blue-100 rounded-full px-4 py-3">
+                    <motion.button
+                      whileHover={{ scale: 0.98 }}
+                      transition={transition}
+                      className="bg-blue-500 text-blue-100 rounded-full px-4 py-3"
+                    >
                       Voir mon profil
-                    </button>
+                    </motion.button>
                   </NavLink>
                 </div>
               </div>
@@ -176,7 +198,9 @@ export default function Home(): JSX.Element {
                       </p>
                     ))}
                   </div>
-                  <img
+                  <motion.img
+                    whileHover={{ scale: 0.98 }}
+                    transition={transition}
                     src={project.firstImage}
                     alt={project.firstImageAlt}
                     className="mt-6 w-full rounded-xl shadow-[0_0_5px_rgba(0,0,0,0.1)]"
@@ -194,6 +218,6 @@ export default function Home(): JSX.Element {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }

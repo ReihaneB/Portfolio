@@ -5,6 +5,9 @@ import { faCrosshairs } from "@fortawesome/free-solid-svg-icons";
 import WorkData from "../database/WorkData";
 import Footer from "../components/Footer";
 import LabData from "../database/LabData";
+import { motion } from "framer-motion";
+
+const transition = { duration: 0.5, ease: [0.6, 0.01, -0.05, 0.9] };
 
 export default function Project(): JSX.Element {
   const { id } = useParams();
@@ -37,11 +40,15 @@ export default function Project(): JSX.Element {
   return (
     <div className="mt-12 lg:flex lg:justify-center mb-36">
       <div className="mx-8 lg:mx-16 lg:w-[1024px]">
-        <div className="flex justify-center ">
+        <motion.div
+          whileHover={{ scale: 0.95 }}
+          transition={transition}
+          className="flex justify-center "
+        >
           <NavLink to={isLabActive ? "/lab" : "/work"}>
             <Logo />
           </NavLink>
-        </div>
+        </motion.div>
 
         {projects.map((project: any, index: number) => (
           <div key={index}>
@@ -59,16 +66,26 @@ export default function Project(): JSX.Element {
                     </p>
                   ))}
                 </div>
-                <div className="hidden lg:flex lg:justify-end lg:items-end">
-                  <a
-                    href={project.externalLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="px-8  bg-gradient-to-r from-purple-500 to-pink-500 rounded-full  py-3 text-white"
-                  >
-                    {project.buttonTextExternalLink}
-                  </a>
-                </div>
+                {project.externalLink ? (
+                  <div className="hidden lg:flex lg:justify-end lg:items-end">
+                    <motion.a
+                      whileHover={{ scale: 0.95 }}
+                      transition={transition}
+                      href={project.externalLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-8  bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full  py-3 text-white"
+                    >
+                      {project.buttonTextExternalLink}
+                    </motion.a>
+                  </div>
+                ) : (
+                  <div className="hidden lg:flex lg:justify-end lg:items-end">
+                    <div className="border-blue-200 px-8 cursor-not-allowed text-transparent border-2 bg-clip-text bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full py-3 ">
+                      {project.buttonTextExternalLink}
+                    </div>
+                  </div>
+                )}
               </div>
               <img
                 src={project.firstImage}
@@ -274,7 +291,9 @@ export default function Project(): JSX.Element {
                               )
                             )}
                           </div>
-                          <img
+                          <motion.img
+                            whileHover={{ scale: 0.98 }}
+                            transition={transition}
                             src={project.firstImage}
                             alt={project.firstImageAlt}
                             className="mt-6 w-full rounded-xl shadow-[0_0_5px_rgba(0,0,0,0.1)]"

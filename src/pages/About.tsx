@@ -7,6 +7,9 @@ import Social from "../database/Social";
 import Skills from "../database/Skills";
 import WorkData from "../database/WorkData";
 import Lottie from "react-lottie-player";
+import { motion } from "framer-motion";
+
+const transition = { duration: 0.5, ease: [0.6, 0.01, -0.05, 0.9] };
 
 export default function About(): JSX.Element {
   const dailyStack = DailyStack();
@@ -20,19 +23,26 @@ export default function About(): JSX.Element {
     <div>
       <div className="mt-12 lg:flex lg:justify-center mb-36">
         <div className="mx-8 lg:mx-16 lg:w-[1024px]">
-          <div onClick={() => navigate(-1)} className="flex justify-center ">
+          <motion.div
+            whileHover={{ scale: 0.95 }}
+            transition={transition}
+            onClick={() => navigate(-1)}
+            className="flex justify-center cursor-pointer"
+          >
             <Logo />
-          </div>
+          </motion.div>
           <div className="lg:flex lg:place-content-between mt-8 lg:mt-28">
             <div>
               <h2>Reihane B.</h2>
-              <p>Basé à Paris</p>
+              <p>Basé à Paris, FR</p>
             </div>
             <div className="hidden lg:flex lg:flex-wrap lg:justify-end lg:items-end">
               <p className="flex flex-wrap">
                 {social.map((item: any) =>
                   Object.values(item).map((item: any, index: number) => (
-                    <a
+                    <motion.a
+                      whileHover={{ scale: 0.95 }}
+                      transition={transition}
                       key={index}
                       href={item.link}
                       target="_blank"
@@ -45,7 +55,7 @@ export default function About(): JSX.Element {
                         className="w-4 mr-2"
                       />
                       {item.intitule}
-                    </a>
+                    </motion.a>
                   ))
                 )}
               </p>
@@ -218,7 +228,9 @@ export default function About(): JSX.Element {
                   </p>
                 ))}
               </div>
-              <img
+              <motion.img
+                whileHover={{ scale: 0.98 }}
+                transition={transition}
                 src={work[0].firstImage}
                 alt="Quarry"
                 className="mt-6 w-full rounded-xl shadow-[0_0_5px_rgba(0,0,0,0.1)]"
