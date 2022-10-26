@@ -50,7 +50,7 @@ export default function ContactForm(props: any): JSX.Element {
   const [projecttime, setProjecttime] = useState<string>("");
   const [hearaboutme, setHearaboutme] = useState<string>("");
 
-  const wrapperRef = useRef(null);
+  const wrapperRef = useRef<any>(null);
 
   const calcul =
     pageID === 1
