@@ -22,3 +22,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+y/index.html
+firebase.json
+.github/workflows/firebase-hosting-pull-request.yml
+.firebaserc
+.firebase/hosting.ZGlzdA.cache
