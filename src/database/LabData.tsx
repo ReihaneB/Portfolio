@@ -46,6 +46,21 @@ import yarn from "../assets/icon/yarn.svg";
 import vite from "../assets/icon/vite.svg";
 import typescript from "../assets/icon/typescript.svg";
 
+// import reihaneb wireframes
+
+import reihanebhomepage1 from "../assets/reihane-b-front-end-developer/homepage/reihaneb-homepage-1.webp";
+import reihanebhomepage2 from "../assets/reihane-b-front-end-developer/homepage/reihaneb-homepage-2.webp";
+import reihanebhomepage3 from "../assets/reihane-b-front-end-developer/homepage/reihaneb-homepage-3.webp";
+import reihanebfooter from "../assets/reihane-b-front-end-developer/footer/reihaneb-footer.webp";
+import reihanebabout1 from "../assets/reihane-b-front-end-developer/about/reihaneb-about-1.webp";
+import reihanebabout2 from "../assets/reihane-b-front-end-developer/about/reihaneb-about-2.webp";
+import reihanebabout3 from "../assets/reihane-b-front-end-developer/about/reihaneb-about-3.webp";
+import reihanebproject1 from "../assets/reihane-b-front-end-developer/project/reihaneb-project-1.webp";
+import reihanebproject2 from "../assets/reihane-b-front-end-developer/project/reihaneb-project-2.webp";
+import reihanebproject3 from "../assets/reihane-b-front-end-developer/project/reihaneb-project-3.webp";
+import reihanebproject4 from "../assets/reihane-b-front-end-developer/project/reihaneb-project-4.webp";
+import reihanebproject5 from "../assets/reihane-b-front-end-developer/project/reihaneb-project-5.webp";
+
 export default function LabData(): any {
   const ReihaneBSocial = "https://github.com/ReihaneB";
 
@@ -55,10 +70,10 @@ export default function LabData(): any {
       url: "reihane-b-front-end-developer",
       projectName: "Reihane B.",
       jobTitle: "Développeur Front-End",
-      firstImage: liomewebsite,
-      firstImageAlt: "Homepage",
-      secondImage: liomewebsite,
-      secondImageAlt: "Homepage",
+      firstImage: reihanebhomepage1,
+      firstImageAlt: "Page d'accueil de Reihane B.",
+      secondImage: reihanebabout1,
+      secondImageAlt: "Page à propos de Reihane B.",
       buttonTextExternalLink: "Code du site sur GitHub",
       externalLink: "https://github.com/ReihaneB/Portfolio",
       projectDescription:
@@ -168,19 +183,25 @@ export default function LabData(): any {
         },
       },
       images: {
-        homepage: {
-          1: { alt: "Homepage", img: liomewebsite },
-          2: { alt: "Homepage", img: liomewebsite },
-          3: { alt: "Homepage", img: liomewebsite },
+        Accueil: {
+          1: { alt: "Page d'accueil de Reihane B.", img: reihanebhomepage1 },
+          2: { alt: "Page d'accueil de Reihane B.", img: reihanebhomepage2 },
+          3: { alt: "Page d'accueil de Reihane B.", img: reihanebhomepage3 },
         },
-        productPage: {
-          1: { alt: "Homepage", img: liomewebsite },
-          2: { alt: "Homepage", img: liomewebsite },
-          3: { alt: "Homepage", img: liomewebsite },
+        Projets: {
+          1: { alt: "Page projet de Reihane B.", img: reihanebproject1 },
+          2: { alt: "Page projet de Reihane B.", img: reihanebproject2 },
+          3: { alt: "Page projet de Reihane B.", img: reihanebproject3 },
+          4: { alt: "Page projet de Reihane B.", img: reihanebproject4 },
+          5: { alt: "Page projet de Reihane B.", img: reihanebproject5 },
         },
-        accountPage: {
-          1: { alt: "Homepage", img: liomewebsite },
-          2: { alt: "Homepage", img: liomewebsite },
+        "À propos": {
+          1: { alt: "Page à propos de Reihane B.", img: reihanebabout1 },
+          2: { alt: "Page à propos de Reihane B.", img: reihanebabout2 },
+          3: { alt: "Page à propos de Reihane B.", img: reihanebabout3 },
+        },
+        Footer: {
+          1: { alt: "Footer de Reihane B.", img: reihanebfooter },
         },
       },
       additionalinformations: {
