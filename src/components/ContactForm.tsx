@@ -82,19 +82,12 @@ export default function ContactForm(props: any): JSX.Element {
   };
 
   const sendEmail = (e: any) => {
-    emailjs
-      .send(
-        import.meta.env.VITE_SOME_KEY_EMAILJS_SERVICEID,
-        import.meta.env.VITE_SOME_KEY_EMAILJS_TEMPLATEID,
-        prefill,
-        import.meta.env.VITE_SOME_KEY_EMAILJS_PUBLICKEY
-      )
-      .then((result) => {
-        console.log(result);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    emailjs.send(
+      import.meta.env.VITE_SOME_KEY_EMAILJS_SERVICEID,
+      import.meta.env.VITE_SOME_KEY_EMAILJS_TEMPLATEID,
+      prefill,
+      import.meta.env.VITE_SOME_KEY_EMAILJS_PUBLICKEY
+    );
   };
 
   const toggleQuickResponseTrue = async (e: any) => {
@@ -320,7 +313,7 @@ export default function ContactForm(props: any): JSX.Element {
                 </h2>
                 <div className="mt-8">
                   <InlineWidget
-                    url="https://calendly.com/skryleiix/15-minute-meeting"
+                    url="https://calendly.com/reihaneb/15min"
                     prefill={prefill}
                   />
                 </div>
