@@ -10,7 +10,10 @@ import Lottie from "react-lottie-player";
 import { motion } from "framer-motion";
 import { Helmet } from "react-helmet";
 
-const transition = { duration: 0.5, ease: [0.6, 0.01, -0.05, 0.9] };
+const transition: { duration: number; ease: number[] } = {
+  duration: 0.3,
+  ease: [0.6, 0.01, -0.05, 0.9],
+};
 
 export default function About(): JSX.Element {
   const dailyStack = DailyStack();
@@ -49,8 +52,8 @@ export default function About(): JSX.Element {
               </div>
               <div className="hidden lg:flex lg:flex-wrap lg:justify-end lg:items-end">
                 <ul className="flex flex-wrap justify-center items-center ">
-                  {social.map((item: any) =>
-                    Object.values(item).map((item: any, index: number) => (
+                  {social.map((item) =>
+                    Object.values(item).map((item, index) => (
                       <li key={index}>
                         <motion.a
                           whileHover={{ scale: 0.95 }}
@@ -84,8 +87,8 @@ export default function About(): JSX.Element {
               <div className="lg:w-1/2 lg:flex lg:items-center">
                 <div className="">
                   <ul className="flex flex-wrap justify-center items-center lg:hidden">
-                    {social.map((item: any) =>
-                      Object.values(item).map((item: any, index: number) => (
+                    {social.map((item) =>
+                      Object.values(item).map((item, index) => (
                         <li key={index}>
                           <motion.a
                             whileHover={{ scale: 0.95 }}
@@ -142,13 +145,13 @@ export default function About(): JSX.Element {
                 </span>
                 <hr className=" border-gray-400 ml-4 w-1/2" />
               </div>
-              {Object.values(dailyStack).map((stack: any, index: number) => (
+              {Object.values(dailyStack).map((stack, index) => (
                 <div key={index}>
-                  {Object.values(stack).map((item: any, index: number) => (
+                  {Object.values(stack).map((item, index) => (
                     <div key={index}>
                       <h2 className="mt-16">{Object.keys(stack)[index]} </h2>
                       <ul className="flex flex-wrap">
-                        {Object.values(item).map((item: any, index: number) => (
+                        {Object.values(item).map((item, index) => (
                           <li
                             key={index}
                             className="mt-4 bg-gray-200 px-6 py-2 rounded-xl w-fit mr-4 flex items-center"
@@ -175,51 +178,49 @@ export default function About(): JSX.Element {
               </div>
               <h2 className="text-center">Ce que je peux faire pour vous</h2>
               <div className="flex flex-wrap justify-center">
-                {skills.map((item: any) =>
-                  Object.values(item.whaticandoforyou).map(
-                    (item: any, index: number) => (
-                      <div
-                        key={index}
-                        className=" bg-blue-100  lg:w-[370px] rounded-xl p-8 mt-16 lg:mx-8 lg:flex lg:flex-wrap lg:place-content-between "
-                      >
-                        <div>
-                          <Lottie
-                            loop
-                            animationData={item.img}
-                            play
-                            className="h-24 lg:h-40"
-                          />
-                          <h3 className="mt-4 font-bold">{item.intitule}</h3>
-                          <p className="mt-4">{item.description}</p>
-                        </div>
-                        <div>
-                          <div className="flex justify-center">
-                            <h4 className="bg-white font-bold px-8 py-3 mt-8 rounded-full flex justify-center items-center">
-                              Livrables
-                            </h4>
-                          </div>
-                          <ul className="mt-4 ">
-                            {item.livrables.map((item: any, index: number) => (
-                              <li
-                                key={index}
-                                className="bg-white p-4 mt-4 rounded-xl"
-                              >
-                                {item}
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
+                {skills.map((item) =>
+                  Object.values(item.whaticandoforyou).map((item, index) => (
+                    <div
+                      key={index}
+                      className=" bg-blue-100  lg:w-[370px] rounded-xl p-8 mt-16 lg:mx-8 lg:flex lg:flex-wrap lg:place-content-between "
+                    >
+                      <div>
+                        <Lottie
+                          loop
+                          animationData={item.img}
+                          play
+                          className="h-24 lg:h-40"
+                        />
+                        <h3 className="mt-4 font-bold">{item.intitule}</h3>
+                        <p className="mt-4">{item.description}</p>
                       </div>
-                    )
-                  )
+                      <div>
+                        <div className="flex justify-center">
+                          <h4 className="bg-white font-bold px-8 py-3 mt-8 rounded-full flex justify-center items-center">
+                            Livrables
+                          </h4>
+                        </div>
+                        <ul className="mt-4 ">
+                          {item.livrables.map((item, index) => (
+                            <li
+                              key={index}
+                              className="bg-white p-4 mt-4 rounded-xl"
+                            >
+                              {item}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  ))
                 )}
               </div>
               <h2 className="mt-16 text-center">
                 Contrats pour lesquelles je pourrais être interessé
               </h2>
               <div className="flex flex-wrap justify-center">
-                {skills.map((item: any) =>
-                  Object.values(item.contractinterested).map((item: any) => (
+                {skills.map((item) =>
+                  Object.values(item.contractinterested).map((item) => (
                     <p
                       key={item}
                       className="mt-4 bg-gray-200 px-6 py-2 rounded-xl w-fit mr-4 flex"
@@ -242,7 +243,7 @@ export default function About(): JSX.Element {
               <h2 className="">{work[0].projectName}</h2>
               <p className="">{work[0].jobTitle}</p>
               <ul className="flex flex-wrap">
-                {work[0].stackSummary.map((stack: any, index: any) => (
+                {work[0].stackSummary.map((stack, index) => (
                   <li
                     key={index}
                     className="mt-4 bg-gray-200 px-6 py-2 rounded-xl w-fit mr-4"

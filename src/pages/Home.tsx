@@ -16,10 +16,13 @@ import react from "../assets/icon/react.svg";
 import { motion } from "framer-motion";
 import { Helmet } from "react-helmet";
 
-const transition = { duration: 0.3, ease: [0.6, 0.01, -0.05, 0.9] };
+const transition: { duration: number; ease: number[] } = {
+  duration: 0.3,
+  ease: [0.6, 0.01, -0.05, 0.9],
+};
 
 export default function Home(): JSX.Element {
-  const { id } = useParams();
+  const { id } = useParams<string>();
   const workArr = WorkData();
   const labArr = LabData();
   const social = Social();
@@ -142,8 +145,8 @@ export default function Home(): JSX.Element {
               <div className="lg:w-1/2 lg:flex lg:flex-wrap lg:items-center">
                 <div>
                   <ul className="flex flex-wrap justify-center items-center ">
-                    {social.map((item: any) =>
-                      Object.values(item).map((item: any, index: number) => (
+                    {social.map((item) =>
+                      Object.values(item).map((item, index) => (
                         <li key={index}>
                           <motion.a
                             whileHover={{ scale: 0.95 }}
@@ -217,7 +220,7 @@ export default function Home(): JSX.Element {
                 )}
               </div>
               <div className="mt-32">
-                {project.map((project: any, index: number) => (
+                {project.map((project, index) => (
                   <article key={index}>
                     <NavLink to={`/project/${project.url}`}>
                       <div className="flex flex-nowrap justify-center items-center my-32">
@@ -229,16 +232,14 @@ export default function Home(): JSX.Element {
                         <h2>{project.projectName}</h2>
                         <p>{project.jobTitle}</p>
                         <ul className="flex flex-wrap">
-                          {project.stackSummary.map(
-                            (stack: any, index: any) => (
-                              <li
-                                key={index}
-                                className="mt-4 bg-gray-200 px-6 py-2 rounded-xl w-fit mr-4"
-                              >
-                                {stack}
-                              </li>
-                            )
-                          )}
+                          {project.stackSummary.map((stack, index) => (
+                            <li
+                              key={index}
+                              className="mt-4 bg-gray-200 px-6 py-2 rounded-xl w-fit mr-4"
+                            >
+                              {stack}
+                            </li>
+                          ))}
                         </ul>
                         <motion.img
                           whileHover={{ scale: 0.98 }}

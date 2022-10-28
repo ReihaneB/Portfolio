@@ -1,10 +1,10 @@
-import { useEffect, useRef, useState } from "react";
+import { MouseEvent, useEffect, useRef, useState } from "react";
 import Skills from "../database/Skills";
 import { InlineWidget } from "react-calendly";
 import emailjs from "emailjs-com";
 import Lottie from "react-lottie-player";
 
-const projectDuration = [
+const projectDuration: string[] = [
   "Une semaine",
   "2 à 4 semaines",
   "1 à 3 mois",
@@ -12,7 +12,7 @@ const projectDuration = [
   "Plus de 6 mois",
 ];
 
-const projectBudget = [
+const projectBudget: string[] = [
   "2000€ - 5000€",
   "5000€ - 10000€",
   "10000€ - 25000€",
@@ -20,14 +20,14 @@ const projectBudget = [
   "Plus de 50000€",
 ];
 
-const projectTime = [
+const projectTime: string[] = [
   "Immédiatement",
   "Dans les 2 prochains mois",
   "Dans les 6 mois",
   "Peu importe",
 ];
 
-const hearAboutMe = [
+const hearAboutMe: string[] = [
   "Recherche google",
   "Réseaux sociaux",
   "Bouche à oreille",
@@ -35,7 +35,11 @@ const hearAboutMe = [
   "Autre",
 ];
 
-export default function ContactForm(props: any): JSX.Element {
+type Props = {
+  close: () => void;
+};
+
+export default function ContactForm(props: Props): JSX.Element {
   const skills = Skills();
   const [pageID, setPageID] = useState<number>(1);
   const [isQuickResponse, setIsQuickResponse] = useState<boolean>(false);
@@ -50,9 +54,9 @@ export default function ContactForm(props: any): JSX.Element {
   const [projecttime, setProjecttime] = useState<string>("");
   const [hearaboutme, setHearaboutme] = useState<string>("");
 
-  const wrapperRef = useRef<any>(null);
+  const wrapperRef = useRef<HTMLDivElement>(null);
 
-  const calcul =
+  const calcul: string =
     pageID === 1
       ? "w-[12.5%]"
       : pageID === 2
@@ -70,18 +74,18 @@ export default function ContactForm(props: any): JSX.Element {
       : "w-[100%]";
 
   const prefill = {
-    name: firstname + " " + lastname,
-    email: email,
-    company: company,
-    projectmessage: projectmessage,
-    needs: needs,
-    projectduration: projectduration,
-    projectbudget: projectbudget,
-    projecttime: projecttime,
-    hearaboutme: hearaboutme,
+    name: (firstname + " " + lastname) as string,
+    email: email as string,
+    company: company as string,
+    projectmessage: projectmessage as string,
+    needs: needs as string,
+    projectduration: projectduration as string,
+    projectbudget: projectbudget as string,
+    projecttime: projecttime as string,
+    hearaboutme: hearaboutme as string,
   };
 
-  const sendEmail = (e: any) => {
+  const sendEmail = (e: Event) => {
     emailjs.send(
       import.meta.env.VITE_SOME_KEY_EMAILJS_SERVICEID,
       import.meta.env.VITE_SOME_KEY_EMAILJS_TEMPLATEID,
@@ -90,24 +94,28 @@ export default function ContactForm(props: any): JSX.Element {
     );
   };
 
-  const toggleQuickResponseTrue = async (e: any) => {
+  const toggleQuickResponseTrue = (e: MouseEvent<HTMLDivElement>) => {
     setPageID(pageID + 1);
-    sendEmail(e);
+    sendEmail(e as unknown as Event);
     setIsQuickResponse(true);
   };
-  const toggleQuickResponseFalse = (e: any) => {
+
+  const toggleQuickResponseFalse = (e: MouseEvent<HTMLDivElement>) => {
     setPageID(pageID + 1);
-    sendEmail(e);
+    sendEmail(e as unknown as Event);
     setIsQuickResponse(false);
   };
 
-  useEffect(() => {
-    const handleClickOutside = (event: any) => {
-      if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
-        props.close();
-      }
-    };
+  const handleClickOutside = (event: Event) => {
+    if (
+      wrapperRef.current &&
+      !wrapperRef.current.contains(event.target as Node)
+    ) {
+      props.close();
+    }
+  };
 
+  useEffect(() => {
     document.addEventListener("mousedown", handleClickOutside);
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
@@ -130,37 +138,35 @@ export default function ContactForm(props: any): JSX.Element {
 
         <div className="mt-8">
           {pageID === 1 ? (
-            <div className="">
+            <>
               <h2 className="text-center ">Quels sont vos besoins ?</h2>
-              {skills.map((item: any) =>
-                Object.values(item.whaticandoforyou).map(
-                  (item: any, index: number) => (
-                    <div
-                      key={index}
-                      onClick={() => {
-                        setNeeds(item.intitule);
-                        setPageID(pageID + 1);
-                      }}
-                      className="bg-blue-100 flex items-center rounded-xl p-4 mt-8"
-                    >
-                      <Lottie
-                        loop
-                        animationData={item.img}
-                        play
-                        style={{ width: 70, height: 70, marginRight: 20 }}
-                      />
-                      <p>{item.intitule}</p>
-                    </div>
-                  )
-                )
+              {skills.map((item) =>
+                Object.values(item.whaticandoforyou).map((item, index) => (
+                  <div
+                    key={index}
+                    onClick={() => {
+                      setNeeds(item.intitule);
+                      setPageID(pageID + 1);
+                    }}
+                    className="bg-blue-100 flex items-center rounded-xl p-4 mt-8"
+                  >
+                    <Lottie
+                      loop
+                      animationData={item.img}
+                      play
+                      style={{ width: 70, height: 70, marginRight: 20 }}
+                    />
+                    <p>{item.intitule}</p>
+                  </div>
+                ))
               )}
-            </div>
+            </>
           ) : pageID === 2 ? (
-            <div className="">
+            <>
               <h2 className="text-center ">
                 Quel est la durée estimé pour votre projet ?
               </h2>
-              {projectDuration.map((item: string, index: number) => (
+              {projectDuration.map((item, index) => (
                 <div
                   key={index}
                   onClick={() => {
@@ -172,13 +178,13 @@ export default function ContactForm(props: any): JSX.Element {
                   <p>{item}</p>
                 </div>
               ))}
-            </div>
+            </>
           ) : pageID === 3 ? (
-            <div className="">
+            <>
               <h2 className="text-center">
                 Quel budget est alloué à ce projet ?
               </h2>
-              {projectBudget.map((item: string, index: number) => (
+              {projectBudget.map((item, index) => (
                 <div
                   key={index}
                   onClick={() => {
@@ -190,11 +196,11 @@ export default function ContactForm(props: any): JSX.Element {
                   <p>{item}</p>
                 </div>
               ))}
-            </div>
+            </>
           ) : pageID === 4 ? (
-            <div className="">
+            <>
               <h2 className="text-center">Pour quand en avez-vous besoin ?</h2>
-              {projectTime.map((item: string, index: number) => (
+              {projectTime.map((item, index) => (
                 <div
                   key={index}
                   onClick={() => {
@@ -206,7 +212,7 @@ export default function ContactForm(props: any): JSX.Element {
                   <p>{item}</p>
                 </div>
               ))}
-            </div>
+            </>
           ) : pageID === 5 ? (
             <form onSubmit={() => setPageID(pageID + 1)}>
               <h2 className="text-center ">
@@ -260,11 +266,11 @@ export default function ContactForm(props: any): JSX.Element {
               />
             </form>
           ) : pageID === 6 ? (
-            <div className="">
+            <>
               <h2 className="text-center ">
                 Comment avez-vous entendu parler de mon travail ?
               </h2>
-              {hearAboutMe.map((item: string, index: number) => (
+              {hearAboutMe.map((item, index) => (
                 <div
                   key={index}
                   onClick={() => {
@@ -276,9 +282,9 @@ export default function ContactForm(props: any): JSX.Element {
                   <p>{item}</p>
                 </div>
               ))}
-            </div>
+            </>
           ) : pageID === 7 ? (
-            <div className="">
+            <>
               <h2 className="text-center ">
                 Quand souhaitez-vous que je vous recontacte ?
               </h2>
@@ -296,17 +302,15 @@ export default function ContactForm(props: any): JSX.Element {
                   J’ai le temps de discuter de mon projet
                 </p>
               </div>
-            </div>
+            </>
           ) : pageID === 8 ? (
             isQuickResponse ? (
-              <div className="">
-                <h2 className="text-center ">
-                  Votre demande à bien été envoyé. J'y répondrai dans les plus
-                  brefs délais.
-                </h2>
-              </div>
+              <h2 className="text-center ">
+                Votre demande à bien été envoyé. J'y répondrai dans les plus
+                brefs délais.
+              </h2>
             ) : (
-              <div className="">
+              <>
                 <h2 className="text-center">
                   Prenons 15 minutes pour en discuter, choississez une date qui
                   vous convient pour réserver une consultation gratuite
@@ -317,7 +321,7 @@ export default function ContactForm(props: any): JSX.Element {
                     prefill={prefill}
                   />
                 </div>
-              </div>
+              </>
             )
           ) : null}
         </div>

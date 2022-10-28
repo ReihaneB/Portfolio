@@ -3,7 +3,11 @@ import linkedin from "../assets/icon/linkedin.svg";
 import resume from "../assets/icon/resume.svg";
 import email from "../assets/icon/email.svg";
 
-export default function Social(): any {
+type Social = {
+  [key: number]: { intitule: string; img: string; link: string; alt: string };
+};
+
+export default function Social(): Social[] {
   return [
     {
       1: {
@@ -18,7 +22,12 @@ export default function Social(): any {
         link: "https://www.linkedin.com/in/reihaneb/",
         alt: "LinkedIn logo",
       },
-      3: { intitule: "Email", img: email, link: "mailto:hello@reihaneb.fr" },
+      3: {
+        intitule: "Email",
+        img: email,
+        link: "mailto:hello@reihaneb.fr",
+        alt: "Email logo",
+      },
       4: {
         intitule: "CV",
         img: resume,

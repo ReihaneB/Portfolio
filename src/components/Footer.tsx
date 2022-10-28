@@ -4,7 +4,10 @@ import Social from "../database/Social";
 import ContactForm from "./ContactForm";
 import { motion } from "framer-motion";
 
-const transition = { duration: 0.3, ease: [0.6, 0.01, -0.05, 0.9] };
+const transition: { duration: number; ease: number[] } = {
+  duration: 0.3,
+  ease: [0.6, 0.01, -0.05, 0.9],
+};
 
 export default function Footer(): JSX.Element {
   const social = Social();

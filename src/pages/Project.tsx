@@ -8,26 +8,29 @@ import LabData from "../database/LabData";
 import { motion } from "framer-motion";
 import { Helmet } from "react-helmet";
 
-const transition = { duration: 0.5, ease: [0.6, 0.01, -0.05, 0.9] };
+const transition: { duration: number; ease: number[] } = {
+  duration: 0.3,
+  ease: [0.6, 0.01, -0.05, 0.9],
+};
 
 export default function Project(): JSX.Element {
-  const { id } = useParams();
+  const { id } = useParams<string>();
   const workArr = WorkData();
   const labArr = LabData();
 
-  const workExist = workArr.filter((work: any) => work.url === id);
-  const labExist = labArr.filter((work: any) => work.url === id);
-  const isLabActive = labExist.length > 0 && true;
+  const workExist = workArr.filter((work) => work.url === id);
+  const labExist = labArr.filter((work) => work.url === id);
+  const isLabActive: boolean = labExist.length > 0 && true;
 
   const actualWorkProjectID: number =
-    workArr.findIndex((projectID: any) => projectID.url === id) + 1;
+    workArr.findIndex((projectID) => projectID.url === id) + 1;
   const nextWorkProjectID: number =
     actualWorkProjectID < workArr.length ? actualWorkProjectID + 1 : 1;
 
   const actualLabProjectID: number =
-    workArr.findIndex((projectID: any) => projectID.url === id) + 1;
+    workArr.findIndex((projectID) => projectID.url === id) + 1;
   const nextLabProjectID: number =
-    actualLabProjectID < workArr.length ? actualLabProjectID + 1 : 1;
+    actualLabProjectID < labArr.length ? actualLabProjectID + 1 : 1;
 
   const projects = [...workExist, ...labExist];
 
@@ -50,13 +53,13 @@ export default function Project(): JSX.Element {
         </header>
 
         <main>
-          {projects.map((project: any, index: number) => (
+          {projects.map((project, index) => (
             <article key={index}>
               <Helmet>
                 <title>
                   {project.projectName} - {project.jobTitle} · Reihane B.
                 </title>
-                <meta name="description" content={project.description} />
+                <meta name="description" content={project.projectDescription} />
                 <meta property="og:image" content={project.firstImage} />
               </Helmet>
               <header className="mt-8 lg:mt-28">
@@ -64,7 +67,7 @@ export default function Project(): JSX.Element {
                 <p className="">{project.jobTitle}</p>
                 <div className="flex place-content-between">
                   <ul className="flex flex-wrap ">
-                    {project.stackSummary.map((stack: any, index: any) => (
+                    {project.stackSummary.map((stack, index) => (
                       <li
                         key={index}
                         className="mt-4 bg-gray-200 px-6 py-2 rounded-xl w-fit mr-4"
@@ -151,41 +154,35 @@ export default function Project(): JSX.Element {
                     <span className="text-gray-400">Stack</span>
                     <hr className=" border-gray-400 ml-4 w-1/2" />
                   </div>
-                  {Object.values(project.stack).map(
-                    (stack: any, index: number) => (
-                      <div key={index}>
-                        <h2 className="mt-16">
-                          {Object.keys(project.stack)[index]}
-                        </h2>
-                        <div className="lg:flex lg:flex-wrap">
-                          {Object.values(stack).map(
-                            (item: any, index: number) => (
-                              <div key={index} className="lg:mr-16 mt-8">
-                                <h3>{Object.keys(stack)[index]} </h3>
-                                <ul className="flex flex-wrap">
-                                  {Object.values(item).map(
-                                    (item: any, index: number) => (
-                                      <li
-                                        key={index}
-                                        className="mt-4 bg-gray-200 px-6 py-2 rounded-xl w-fit mr-4 flex items-center"
-                                      >
-                                        <img
-                                          alt={item.alt}
-                                          src={item.img}
-                                          className="mr-3 h-5 w-5"
-                                        />
-                                        {item.intitule}
-                                      </li>
-                                    )
-                                  )}
-                                </ul>
-                              </div>
-                            )
-                          )}
-                        </div>
+                  {Object.values(project.stack).map((stack, index) => (
+                    <div key={index}>
+                      <h2 className="mt-16">
+                        {Object.keys(project.stack)[index]}
+                      </h2>
+                      <div className="lg:flex lg:flex-wrap">
+                        {Object.values(stack).map((item, index) => (
+                          <div key={index} className="lg:mr-16 mt-8">
+                            <h3>{Object.keys(stack)[index]} </h3>
+                            <ul className="flex flex-wrap">
+                              {Object.values(item).map((item, index) => (
+                                <li
+                                  key={index}
+                                  className="mt-4 bg-gray-200 px-6 py-2 rounded-xl w-fit mr-4 flex items-center"
+                                >
+                                  <img
+                                    alt={item.alt}
+                                    src={item.img}
+                                    className="mr-3 h-5 w-5"
+                                  />
+                                  {item.intitule}
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        ))}
                       </div>
-                    )
-                  )}
+                    </div>
+                  ))}
                 </section>
                 <section>
                   <div className="flex flex-nowrap justify-center items-center my-32">
@@ -193,25 +190,21 @@ export default function Project(): JSX.Element {
                     <span className="text-gray-400">Wireframes</span>
                     <hr className=" border-gray-400 ml-4 w-1/2" />
                   </div>
-                  {Object.values(project.images).map(
-                    (image: any, index: number) => (
-                      <div key={index}>
-                        <h2 className="mt-16">
-                          {Object.keys(project.images)[index]}
-                        </h2>
-                        {Object.values(image).map(
-                          (item: any, index: number) => (
-                            <img
-                              key={index}
-                              src={item.img}
-                              alt={item.alt}
-                              className="mt-6 w-full rounded-xl shadow-[0_0_5px_rgba(0,0,0,0.1)]"
-                            />
-                          )
-                        )}
-                      </div>
-                    )
-                  )}
+                  {Object.values(project.images).map((image, index) => (
+                    <div key={index}>
+                      <h2 className="mt-16">
+                        {Object.keys(project.images)[index]}
+                      </h2>
+                      {Object.values(image).map((item, index) => (
+                        <img
+                          key={index}
+                          src={item.img}
+                          alt={item.alt}
+                          className="mt-6 w-full rounded-xl shadow-[0_0_5px_rgba(0,0,0,0.1)]"
+                        />
+                      ))}
+                    </div>
+                  ))}
                 </section>
                 <section>
                   <div className="flex flex-nowrap justify-center items-center my-32">
@@ -225,7 +218,7 @@ export default function Project(): JSX.Element {
                   {project.additionalinformations.delivreables && (
                     <ul>
                       {project.additionalinformations.delivreables.map(
-                        (item: any, index: number) => (
+                        (item, index) => (
                           <li key={index} className="mt-4">
                             {item}
                           </li>
@@ -286,7 +279,7 @@ export default function Project(): JSX.Element {
                   <ul className="flex flex-wrap">
                     {Object.values(
                       project.additionalinformations.projectInformations.credits
-                    ).map((item: any, index: number) => (
+                    ).map((item, index) => (
                       <li key={index} className="mr-16">
                         <h4 className="mr-4 mt-4">
                           {
@@ -297,13 +290,11 @@ export default function Project(): JSX.Element {
                           }
                         </h4>
                         <div className="mt-4">
-                          {Object.values(item).map(
-                            (item: any, index: number) => (
-                              <div key={index} className="">
-                                <a href={item.link}>{item.name}</a>
-                              </div>
-                            )
-                          )}
+                          {Object.values(item).map((item, index) => (
+                            <div key={index} className="">
+                              <a href={item.link}>{item.name}</a>
+                            </div>
+                          ))}
                         </div>
                       </li>
                     ))}
@@ -311,8 +302,8 @@ export default function Project(): JSX.Element {
                 </section>
                 {nextproject
                   ? nextproject
-                      .filter((work: any) => work.id === nextWorkProjectID)
-                      .map((project: any, index: number) => (
+                      .filter((work) => work.id === nextWorkProjectID)
+                      .map((project, index) => (
                         <NavLink to={`/project/${project.url}`} key={index}>
                           <div className="flex flex-nowrap justify-center items-center my-32">
                             <hr className=" border-gray-400 mr-4 w-1/2" />
@@ -326,16 +317,14 @@ export default function Project(): JSX.Element {
                               <h2 className="">{project.projectName}</h2>
                               <p className="">{project.jobTitle}</p>
                               <ul className="flex flex-wrap">
-                                {project.stackSummary.map(
-                                  (stack: any, index: any) => (
-                                    <li
-                                      key={index}
-                                      className="mt-4 bg-gray-200 px-6 py-2 rounded-xl w-fit mr-4"
-                                    >
-                                      {stack}
-                                    </li>
-                                  )
-                                )}
+                                {project.stackSummary.map((stack, index) => (
+                                  <li
+                                    key={index}
+                                    className="mt-4 bg-gray-200 px-6 py-2 rounded-xl w-fit mr-4"
+                                  >
+                                    {stack}
+                                  </li>
+                                ))}
                               </ul>
                               <motion.img
                                 whileHover={{ scale: 0.98 }}

@@ -61,7 +61,43 @@ import reihanebproject3 from "../assets/reihane-b-front-end-developer/project/re
 import reihanebproject4 from "../assets/reihane-b-front-end-developer/project/reihaneb-project-4.webp";
 import reihanebproject5 from "../assets/reihane-b-front-end-developer/project/reihaneb-project-5.webp";
 
-export default function LabData(): any {
+type LabData = {
+  id: number;
+  url: string;
+  projectName: string;
+  jobTitle: string;
+  firstImage: string;
+  firstImageAlt: string;
+  secondImage: string;
+  secondImageAlt: string;
+  buttonTextExternalLink: string;
+  externalLink?: string;
+  projectDescription: string;
+  theGoal: string;
+  theGoalDescription: string;
+  stackSummary: string[];
+  stack: {
+    [key: string]: {
+      [key: string]: {
+        [key: number]: { intitule: string; img: string; alt: string };
+      };
+    };
+  };
+  images: { [key: string]: { [key: number]: { img: string; alt: string } } };
+  additionalinformations: {
+    delivreables: string[];
+    projectInformations: {
+      client: string;
+      clientwebsite: string;
+      projectduration: string;
+      credits: {
+        [key: string]: { [key: number]: { name: string; link: string } };
+      };
+    };
+  };
+};
+
+export default function LabData(): LabData[] {
   const ReihaneBSocial = "https://github.com/ReihaneB";
 
   return [

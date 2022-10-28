@@ -80,7 +80,43 @@ import ultrabookporfolio2 from "../assets/ultrabook-front-end-developer/portfoli
 const ReihaneBSocial = "https://github.com/ReihaneB";
 const JawedMSocial = "https://github.com/Jawed-Mokeddem";
 
-export default function WorkData(): any {
+type WorkData = {
+  id: number;
+  url: string;
+  projectName: string;
+  jobTitle: string;
+  firstImage: string;
+  firstImageAlt: string;
+  secondImage: string;
+  secondImageAlt: string;
+  buttonTextExternalLink: string;
+  externalLink?: string;
+  projectDescription: string;
+  theGoal: string;
+  theGoalDescription: string;
+  stackSummary: string[];
+  stack: {
+    [key: string]: {
+      [key: string]: {
+        [key: number]: { intitule: string; img: string; alt: string };
+      };
+    };
+  };
+  images: { [key: string]: { [key: number]: { img: string; alt: string } } };
+  additionalinformations: {
+    delivreables: string[];
+    projectInformations: {
+      client: string;
+      clientwebsite: string;
+      projectduration: string;
+      credits: {
+        [key: string]: { [key: number]: { name: string; link: string } };
+      };
+    };
+  };
+};
+
+export default function WorkData(): WorkData[] {
   return [
     {
       id: 1,
@@ -92,7 +128,6 @@ export default function WorkData(): any {
       secondImage: liomeproduct,
       secondImageAlt: "Page produit de Liome avec personnalisation",
       buttonTextExternalLink: "En cours de développement",
-      externalLink: null,
       projectDescription:
         "La joaillerie Liome est une entreprise du secteur du luxe qui vend des bijoux pour homme en matériaux précieux. La marque utilise des technologies de pointe pour concevoir et fabriquer ses bijoux, afin de garantir la plus haute qualité et la plus grande précision possible. Les bijoux Liome sont également éthiques et respectueux de l'environnement car ils sont fabriqués à partir de matériaux recyclés et recyclables.",
       theGoal:
@@ -314,7 +349,6 @@ export default function WorkData(): any {
       secondImage: ancestral3,
       secondImageAlt: "Anneau Ancestral sur marbre",
       buttonTextExternalLink: "En cours de développement",
-      externalLink: null,
       projectDescription:
         "La joaillerie Liome est une entreprise du secteur du luxe qui vend des bijoux pour homme en matériaux précieux. La marque utilise des technologies de pointe pour concevoir et fabriquer ses bijoux, afin de garantir la plus haute qualité et la plus grande précision possible. Les bijoux Liome sont également éthiques et respectueux de l'environnement, car ils sont fabriqués à partir de matériaux recyclés et recyclables.",
       theGoal: "Réaliser des visuels pour le site web",
@@ -506,7 +540,5 @@ export default function WorkData(): any {
         },
       },
     },
-
-    //
   ];
 }

@@ -4,7 +4,19 @@ import bugs from "../assets/skills/bugs.json";
 import react from "../assets/skills/react.json";
 import integration from "../assets/skills/integration.json";
 
-export default function Skills(): any {
+type Skills = {
+  whaticandoforyou: {
+    [key: number]: {
+      intitule: string;
+      img: {};
+      description: string;
+      livrables: string[];
+    };
+  };
+  contractinterested: string[];
+};
+
+export default function Skills(): Skills[] {
   return [
     {
       whaticandoforyou: {

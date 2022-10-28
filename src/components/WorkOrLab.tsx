@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { NavLink, useParams } from "react-router-dom";
 
-export default function WorkOrLab() {
-  const { id } = useParams();
+export default function WorkOrLab(): JSX.Element {
+  const { id } = useParams<string>();
 
   const [isToggle, setIsToggle] = useState<boolean>(
     id === "lab" ? true : false
