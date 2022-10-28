@@ -1,5 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
+import { getPerformance } from "firebase/performance";
 
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_SOME_KEY_FIREBASE_APIKEY,
@@ -14,3 +15,4 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
+const perf = getPerformance(app);
