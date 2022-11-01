@@ -31,7 +31,7 @@ export default function Social(): Social[] {
       4: {
         intitule: "CV",
         img: resume,
-        link: "https://firebasestorage.googleapis.com/v0/b/reihaneb-dea94.appspot.com/o/CV_Reihane_B.pdf?alt=media&token=43a38bf6-78d4-4336-a8b5-ed530cdad523",
+        link: "https://firebasestorage.googleapis.com/v0/b/reihaneb-dea94.appspot.com/o/CV_Reihane_B.pdf?alt=media&token=35c75f4c-d64e-457f-8076-a872754b4755",
         alt: "Resume logo",
       },
     },
